@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 Documentatie
+    url: https://github.com/hanbedrijfskunde/ontwikkeling-theoom/tree/main/project-documents
+    about: Bekijk de project documentatie
+  - name: 💬 Discussie starten
+    url: https://github.com/hanbedrijfskunde/ontwikkeling-theoom/discussions
+    about: Start een algemene discussie over het project

@@ -1,0 +1,129 @@
+# GitHub Labels voor ontwikkeling-theoom
+# Dit bestand kan gebruikt worden met github-label-sync tool
+
+# Prioriteit
+- name: 'priority: critical'
+  color: 'd73a4a'
+  description: 'Kritiek - onmiddellijke actie vereist'
+
+- name: 'priority: high'
+  color: 'ff6b6b'
+  description: 'Hoge prioriteit - binnen 1 week'
+
+- name: 'priority: medium'
+  color: 'ffd93d'
+  description: 'Middel prioriteit - binnen 2 weken'
+
+- name: 'priority: low'
+  color: '6bcf7f'
+  description: 'Lage prioriteit - wanneer tijd is'
+
+# Type
+- name: 'type: bug'
+  color: 'd73a4a'
+  description: 'Iets werkt niet zoals verwacht'
+  aliases: ['bug']
+
+- name: 'type: feature'
+  color: '0e8a16'
+  description: 'Nieuwe functionaliteit'
+  aliases: ['enhancement', 'feature']
+
+- name: 'type: documentation'
+  color: '0075ca'
+  description: 'Documentatie verbeteringen'
+  aliases: ['documentation', 'docs']
+
+- name: 'type: tool'
+  color: '1d76db'
+  description: 'Interactieve tool/simulatie ontwikkeling'
+  aliases: ['tool', 'simulation']
+
+# Status
+- name: 'status: review'
+  color: 'fbca04'
+  description: 'Wacht op review'
+  aliases: ['review', 'needs-feedback']
+
+- name: 'status: in-progress'
+  color: 'c2e0c6'
+  description: 'Actief in ontwikkeling'
+
+- name: 'status: blocked'
+  color: 'd93f0b'
+  description: 'Geblokkeerd door externe factor'
+
+- name: 'status: ready'
+  color: '0e8a16'
+  description: 'Klaar voor implementatie'
+
+# Lesweek
+- name: 'week: 1'
+  color: 'c5def5'
+  description: 'Lesweek 1 materiaal'
+
+- name: 'week: 2'
+  color: 'c5def5'
+  description: 'Lesweek 2 materiaal'
+
+- name: 'week: 3'
+  color: 'c5def5'
+  description: 'Lesweek 3 materiaal'
+
+- name: 'week: 4'
+  color: 'c5def5'
+  description: 'Lesweek 4 materiaal (Lean 4.0)'
+
+- name: 'week: 5'
+  color: 'c5def5'
+  description: 'Lesweek 5 materiaal'
+
+# Component
+- name: 'component: lrd'
+  color: 'bfdadc'
+  description: 'Learning Requirement Document'
+
+- name: 'component: presentatie'
+  color: 'bfdadc'
+  description: 'PowerPoint presentaties'
+
+- name: 'component: workbook'
+  color: 'bfdadc'
+  description: 'Student workbooks'
+
+- name: 'component: assessment'
+  color: 'bfdadc'
+  description: 'Toetsing & beoordeling'
+
+- name: 'component: demo'
+  color: 'bfdadc'
+  description: "Demo's en interactieve tools"
+
+# Overig
+- name: 'good first issue'
+  color: '7057ff'
+  description: 'Geschikt voor beginners'
+
+- name: 'help wanted'
+  color: '008672'
+  description: 'Extra aandacht nodig'
+
+- name: 'duplicate'
+  color: 'cfd3d7'
+  description: 'Dit issue bestaat al'
+
+- name: 'invalid'
+  color: 'e4e669'
+  description: 'Dit lijkt niet te kloppen'
+
+- name: 'wontfix'
+  color: 'ffffff'
+  description: 'Dit wordt niet aangepakt'
+
+- name: 'lean-40'
+  color: '00d4ff'
+  description: 'Gerelateerd aan Lean 4.0 integratie'
+
+- name: 'quick-fix'
+  color: 'c2e0c6'
+  description: 'Kleine aanpassing (< 30 min)'
