@@ -1,5 +1,5 @@
 ## Title
-"Amazon's Robot Revolution: Upskilling or Unemployment?"
+"Amazon's 6th S: Sort, Set, Shine, Standardize, Sustain... Substitute?"
 
 ## Video 1
 https://youtu.be/EpfbrD0AVZ4?si=VBMeBDboItgAAy-H
