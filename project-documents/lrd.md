@@ -16,11 +16,38 @@ Studenten leren bedrijfsprocessen analyseren en optimaliseren met **zowel conven
 
 ### 1.2 Unique Value Proposition
 - **50/50 balans**: Klassieke Lean tools (Ishikawa, VSM, TIM WOOD) + Industry 4.0 tech (IoT, AI, Digital Twins)
-- **Hands-on experimenteren**: Interactieve web-based simulaties (process mining, discrete event simulation, Monte Carlo)
+- **Hands-on experimenteren**: Interactieve web-based simulaties (process mining, discrete event simulation)
 - **Studentkeuze**: Uit Table VII kiezen studenten welke technologie ze toepassen
 - **Praktijkgericht**: Synthetische maar realistische data, direct toepasbaar
 
-### 1.3 Positionering
+### 1.3 Conceptueel Framework: Digital Process Engineering
+
+De les is gestructureerd rondom het **Digital Process Engineering** framework, dat de brug vormt tussen traditionele Lean en Industry 4.0:
+
+![Digital Process Engineering Framework](../background-material/Digital%20Process%20Engineering.jpg)
+
+**Drie pijlers van het framework:**
+
+1. **Process Discovery (Links)**: Data → Process Mining → Process Model
+   - *Vraag*: "Wat gebeurt er NU in ons proces?"
+   - *Tool*: Process Mining Simulator
+   - *Lean link*: Digitale variant van Gemba Walk en VSM
+   - Ontdekt automatisch procesvarianten, bottlenecks en waste uit logs
+
+2. **Process Optimization (Rechts)**: Process Model → Discrete Event Simulation → Process Design
+   - *Vraag*: "Wat ALS we X veranderen?"
+   - *Tool*: DES Simulator
+   - *Lean link*: Virtuele Kaizen - test verbeteringen zonder risico
+   - Simuleert impact van changes (resources, buffers, service times)
+
+3. **Digital Twin (Centrum)**: Real-time integratie van discovery + optimization
+   - Verbindt "wat is" (mining) met "wat kan" (simulation)
+   - Continuous monitoring + predictive analytics
+   - **Lean 4.0 = Traditionele Lean + Digital Process Engineering**
+
+Dit framework maakt abstract Industry 4.0 jargon concreet en laat studenten zien hoe tools elkaar aanvullen.
+
+### 1.4 Positionering
 - **Voor**: Week 3 - Procesvisualisatie (BPMN, flowcharts)
 - **Na**: Week 5 - Recht & Structuur
 - **Link**: Brugfunctie tussen traditionele methoden en digitale transformatie
@@ -105,38 +132,40 @@ Na deze les kunnen studenten bedrijfsprocessen analyseren met **conventionele Le
 **Table VII Preview**: Toon matrix Lean Tools × Industry 4.0 Tech
 - "Straks kiezen jullie zelf welke combinatie je wil uitwerken"
 
-#### Interactieve Demo's (3 × 10 min = 30 min) - MASTERY
+#### Interactieve Demo's (2 × 15 min = 30 min) - MASTERY
 
-**Demo 1: Process Mining met IoT Sensoren**
-- **Web-based tool**: Simulatie met synthetische data
+**Demo 1: Process Mining - "Wat gebeurt er NU?" (15 min)**
+- **Positie in framework**: Linker pijler (Process Discovery)
+- **Web-based tool**: Simulatie met synthetische ERP logs
 - **Studenten zien**:
-  - Real-time processtappen tracking
+  - Real-time processtappen tracking uit event logs
   - Automatische bottleneck detectie
-  - Afwijkingen van standaard proces
+  - Afwijkingen van standaard proces (varianten)
+  - TIM WOOD waste detection (Waiting, Rework)
+- **Interactie**: Studenten kiezen scenario (Procurement / Customer Service / Order-to-Cash)
 - **Vergelijk**: "Wat zie je hier dat je NIET zag in handmatige VSM?"
+- **Lean 4.0 link**: VSM + IoT sensors = automatische procesontdekking
 
-**Demo 2: Discrete Event Simulation**
-- **Tool**: Interactieve simulatie productielijn
+**Demo 2: Discrete Event Simulation - "Wat ALS we dit veranderen?" (15 min)**
+- **Positie in framework**: Rechter pijler (Process Optimization)
+- **Tool**: Interactieve simulatie (Healthcare clinic / Manufacturing line)
 - **Studenten experimenteren**:
-  - Wijzig parameters (snelheid, resources)
-  - Zie direct impact op doorlooptijd
-  - Test verbeterscenario's zonder risico
+  - Wijzig parameters (aantal resources, service tijden, arrival rate)
+  - Zie direct impact op wachttijden en doorlooptijd
+  - Test verbeterscenario's zonder risico (virtual Kaizen)
 - **Inzicht**: "What-if" analyses in seconden vs. uren handwerk
-
-**Demo 3: AI-Powered Predictive Analytics + Monte Carlo**
-- **Showcase**: Dashboard met voorspellingen
-- **Monte Carlo simulatie**:
-  - Spreiding in procestijden visualiseren
-  - Betrouwbaarheidsintervallen voor planningen
-  - Risk assessment met probabilistische modellen
-- **Gebruik**: Voorspel machinestoringen voor preventief onderhoud
-- **Link naar Lean**: "Dit is Jidoka (autonomation) op steroïden"
+- **Gebruik**: Simuleer "meer verpleegkundigen" of "snellere machine" VOOR investering
+- **Lean 4.0 link**: Kaizen + Digital Twin = risicovrij testen
 
 #### Reflectiemoment (5 min)
-**Vraag**: "Wat is de trade-off?"
-- **Kosten**: Sensoren, software, data-infrastructure
-- **Baten**: Snelheid, nauwkeurigheid, schaalbaarheid
-- **Conclusie**: Niet always better, maar vaak complementary
+**Vraag**: "Hoe vullen deze twee tools elkaar aan?"
+- **Process Mining** (links): Ontdekt huidige werkelijkheid uit data
+- **DES** (rechts): Test verbeteringen in virtuele omgeving
+- **Digital Twin** (centrum): Combinatie = real-time optimalisatie
+- **Trade-off discussie**:
+  - **Kosten**: Sensoren, software, data-infrastructure
+  - **Baten**: Snelheid, nauwkeurigheid, schaalbaarheid
+  - **Conclusie**: Niet altijd beter, maar vaak complementair aan traditionele Lean
 
 ---
 
@@ -230,9 +259,9 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 - Tech troubleshooting: "Als demo niet werkt, gebruik screenshots"
 
 **Demo's** (web-based, vooraf testen!):
-- Process mining tool (URL + login)
-- Discrete event simulation (URL + instructions)
-- Monte Carlo dashboard (URL + voorbeeld data)
+- Process Mining simulator (3 scenario's: Procurement, Customer Service, Order-to-Cash)
+- Discrete Event Simulation tool (2 scenario's: Healthcare, Manufacturing)
+- Digital Process Engineering diagram (printable A4)
 
 **Backup**: Screenshots/video recordings als tech faalt
 
@@ -275,7 +304,6 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 **Alternatieven als custom tools niet klaar**:
 - Process mining: Disco (Fluxicon) free trial
 - Simulation: Simul8 online demo / AnyLogic Cloud
-- Monte Carlo: Excel-based tool met Visual Basic macro's
 
 ---
 
@@ -364,8 +392,8 @@ Deze tabel is het **hart van de les**. Studenten gebruiken dit als menu om hun e
 ## 7. IMPLEMENTATIE TIPS VOOR WITEK
 
 ### 7.1 Voorbereiding (2 uur)
-- [ ] Test alle web-based demo's (3 × URLs + login)
-- [ ] Print templates (1 set per 4 studenten)
+- [ ] Test alle web-based demo's (2 tools: Process Mining + DES)
+- [ ] Print templates (1 set per 4 studenten) + Digital Process Engineering diagram
 - [ ] Check: Beamer, WiFi, toegang tot demo sites
 - [ ] Bereid backup plan: screenshots als tech faalt
 - [ ] Lees Lean 4.0 artikel door voor eigen verdieping
@@ -442,7 +470,7 @@ Deze tabel is het **hart van de les**. Studenten gebruiken dit als menu om hun e
 10-25:  Ishikawa (instructie + oefening)
 25-45:  VSM (instructie + oefening)
 45-50:  Industry 4.0 intro + Table VII
-50-80:  Demo's (3× 10 min) - studenten experimenteren!
+50-80:  Demo's (2× 15 min: Process Mining + DES) - studenten experimenteren!
 80-105: Hybride opdracht (Table VII toepassen)
 105-110: Borging intro
 110-120: Reflectie + closing
