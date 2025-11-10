@@ -83,6 +83,59 @@ Na deze les kunnen studenten bedrijfsprocessen analyseren met **conventionele Le
 - **Pragmatisch beslissen**: Juiste tool voor de juiste situatie kiezen
 - **Toekomstgericht**: Voorbereid op smart manufacturing trends
 
+### 2.4 Koppeling aan DOVE-cyclus Leeruitkomsten
+
+Deze lesweek draagt bij aan de vier leeruitkomsten van Operations Management (propedeuseniveau):
+
+#### **Leeruitkomst 1: Diagnosticeren**
+*"Analyseren en diagnosticeren van bedrijfskundige vraagstukken en ontwikkelingen"*
+
+**Hoe Week 4 hieraan bijdraagt:**
+- **Ishikawa-diagram**: Identificeren oorzaken van procesknelpunten (6M-methode)
+- **Value Stream Mapping**: Diagnosticeren waar tijd verloren gaat (wachttijd vs. bewerkingstijd)
+- **TIM WOOD waste analyse**: Herkennen van 7 verspillingstypen in processen
+- **Process Mining**: Automatisch ontdekken van bottlenecks en procesvarianten uit event logs
+- **Bottleneck detectie**: Via DES simulatie het kritieke pad identificeren
+
+**Assessment**: Studenten diagnosticeren procesknelpunten in hun case met min. 2 Lean tools
+
+#### **Leeruitkomst 2: Ontwerpen**
+*"(Her)ontwerpen van bedrijfskundige oplossingen met oog voor meervoudige waardencreatie"*
+
+**Hoe Week 4 hieraan bijdraagt:**
+- **TO-BE Value Stream Map**: Ontwerpen verbeterd proces met lagere doorlooptijd
+- **Discrete Event Simulation**: Virtueel testen van ontwerpkeuzes (meer resources, andere service tijden)
+- **Hybride Lean 4.0 plan**: Combineren traditionele + digitale oplossingen uit Table VII
+- **Meervoudige waarde**: Trade-off analyse (kosten vs. baten, MKB vs. corporate)
+- **Borgingsplan**: Ontwerpen monitoring (KPI's + digital dashboards)
+
+**Assessment**: Studenten ontwerpen TO-BE scenario met kwantitatieve impact (tijd/kosten reductie)
+
+#### **Leeruitkomst 3: Veranderen**
+*"Begeleiden van een bedrijfskundige verandering"*
+
+**Hoe Week 4 hieraan bijdraagt** (beperkt, niet hoofdfocus):
+- **Borgingsstrategieën**: Hoe borg je verbeteringen? (procedures, training, monitoring)
+- **Change management impliciete kennis**: Van handmatig naar geautomatiseerd proces
+- **Implementatie-uitdagingen**: Reflectie op weerstanden en adoptieproblemen
+
+**Assessment**: Studenten beschrijven borgingsplan in hun assignment (10% van rubric)
+
+#### **Leeruitkomst 4: Evalueren**
+*"Evalueren van proces en resultaat"*
+
+**Hoe Week 4 hieraan bijdraagt** (beperkt, niet hoofdfocus):
+- **KPI's berekenen**: Value-added ratio, utilization, lead time
+- **Waste detectie**: Evalueren hoeveel verspilling er is (TIM WOOD %)
+- **Simulatie resultaten interpreteren**: Is verbetering significant? (confidence intervals)
+- **Reflectie**: Evalueren trade-offs en business case
+
+**Assessment**: Studenten evalueren impact van hun TO-BE scenario met metrieken
+
+---
+
+**Focus van Week 4**: Primair **Diagnosticeren** (60%) en **Ontwerpen** (30%), secundair Veranderen en Evalueren (10%). Dit past bij propedeuseniveau waar foundation skills worden gelegd.
+
 ---
 
 ## 3. LESSTRUCTUUR (120 minuten)
@@ -268,16 +321,17 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 ### 4.2 Voor Studenten
 
 **Student Workbook** (5-6 pagina's PDF):
-1. **Leerdoelen** + lesson roadmap
+1. **Leerdoelen** + DOVE-cyclus mapping (waar draagt Week 4 aan bij?)
 2. **Conventionele Lean cheat sheet**:
    - Ishikawa template (blank)
    - VSM symbolen
    - TIM WOOD uitleg + voorbeelden
    - Formules (doorlooptijd, value-added ratio)
-3. **Table VII: Lean × Industry 4.0 Matrix** (full page)
-4. **Opdracht template**: AS-IS / TO-BE / Impact
-5. **Skill Progression Checklist**
-6. **Reflectievragen**
+3. **Digital Process Engineering framework** (diagram met uitleg 3 pijlers)
+4. **Table VII: Lean × Industry 4.0 Matrix** (full page)
+5. **Opdracht template**: AS-IS (D) / TO-BE (O) / Borging (V) / Impact (E)
+6. **Skill Progression Checklist** (met DOVE-labels)
+7. **Reflectievragen**
 
 **Templates** (printbaar):
 - Ishikawa diagram (A3 format)
@@ -348,14 +402,17 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 
 ### 5.3 Beoordelingscriteria (Rubric voor Assignment)
 
-| Criterium | Gewicht | Onvoldoende | Voldoende | Goed | Excellent |
-|-----------|---------|-------------|-----------|------|-----------|
-| **Conventionele Lean** | 40% | Incomplete/onjuist | Correcte toepassing basis tools | Grondige analyse, inzichten | Innovatieve oorzaken, patronen |
-| **Industry 4.0 Keuze** | 30% | Geen rationale | Keuze onderbouwd | Strategische keuze, goed uitgelegd | Perfect passend, creative approach |
-| **Integratie & TO-BE** | 20% | Geen echte verbetering | Realistische verbeteringen | Kwantitatieve impact, borgingsplan | Overtuigende business case |
-| **Reflectie** | 10% | Oppervlakkig | Trade-offs benoemd | Kritische analyse | Genuanceerd, strategisch inzicht |
+| Criterium | DOVE | Gewicht | Onvoldoende | Voldoende | Goed | Excellent |
+|-----------|------|---------|-------------|-----------|------|-----------|
+| **Conventionele Lean Analyse** | **D** | 30% | Incomplete/onjuist | Correcte toepassing basis tools (Ishikawa, VSM, TIM WOOD) | Grondige diagnose, duidelijke inzichten | Innovatieve analyse, patronen ontdekt |
+| **Industry 4.0 Keuze & Rationale** | **D** | 10% | Geen rationale | Keuze onderbouwd | Strategisch passend, goed uitgelegd | Perfect match met probleem |
+| **TO-BE Ontwerp** | **O** | 30% | Geen echte verbetering | Realistische verbeteringen | Kwantitatieve impact (tijd/kosten), hybride aanpak | Overtuigende business case, meervoudige waardencreatie |
+| **Borgingsplan** | **V** | 10% | Ontbreekt of vaag | Basis KPI's + monitoring benoemd | Concreet plan (procedures + digital dashboards) | Duurzame borging, change management |
+| **Evaluatie & Reflectie** | **E** | 20% | Oppervlakkig | Trade-offs benoemd, impact geschat | Kritische analyse, metrieken gebruikt | Genuanceerd, strategisch inzicht, lessons learned |
 
-**Target**: 75% studenten haalt 6+
+**DOVE-cyclus verdeling**: Diagnosticeren (40%), Ontwerpen (30%), Veranderen (10%), Evalueren (20%)
+
+**Target**: 75% studenten haalt 6+ (propedeuseniveau)
 
 ---
 
