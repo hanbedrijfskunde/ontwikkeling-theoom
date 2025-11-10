@@ -109,7 +109,26 @@ Deze lesweek draagt bij aan de vier leeruitkomsten van Operations Management (pr
 - **Meervoudige waarde**: Trade-off analyse (kosten vs. baten, MKB vs. corporate)
 - **Borgingsplan**: Ontwerpen monitoring (KPI's + digital dashboards)
 
-**Assessment**: Studenten ontwerpen TO-BE scenario met kwantitatieve impact (tijd/kosten reductie)
+#### **Meervoudige waardencreatie in Lean 4.0 context**
+
+Cases illustreren dat "waarde" voor verschillende stakeholders verschilt:
+
+| Stakeholder | Uber Example | Amazon Example | Microsoft Example |
+|-------------|--------------|----------------|-------------------|
+| **Shareholders** | Efficient matching, surge pricing | 25% more efficient warehouses | 4× accuracy at fraction of cost |
+| **Workers** | Flexibility (claimed) vs. 80h weeks (reality) | Upskilling (300k trained) vs. flat employment | Job security → "Will AI replace me?" |
+| **Customers** | Fast, reliable rides | Fast delivery (1-2 day Prime) | Accessible diagnosis (Bing search) |
+| **Society** | Congestion, gig economy precarity | 32h week alternative (Convictional) | Healthcare cost reduction vs. trust |
+
+**Ontwerp challenge**: Hoe design je Lean 4.0 systemen die **alle** stakeholders dienen, niet alleen shareholders?
+
+**Link naar Table VII**: Elke Lean Tool × Industry 4.0 combinatie heeft impliciete waardekeuzes:
+
+- #7 (JIT + Automated Inventory): Efficient voor bedrijf, maar job displacement voor workers?
+- #10 (Jidoka + AI Monitoring): Quality gains, maar eliminates human judgment?
+- #13 (TPM + Predictive Maintenance): Cost savings, maar reduces maintenance jobs?
+
+**Assessment**: Studenten ontwerpen TO-BE scenario met kwantitatieve impact (tijd/kosten reductie) + reflecteren op stakeholder impact
 
 #### **Leeruitkomst 3: Veranderen**
 *"Begeleiden van een bedrijfskundige verandering"*
@@ -124,17 +143,98 @@ Deze lesweek draagt bij aan de vier leeruitkomsten van Operations Management (pr
 #### **Leeruitkomst 4: Evalueren**
 *"Evalueren van proces en resultaat"*
 
-**Hoe Week 4 hieraan bijdraagt** (beperkt, niet hoofdfocus):
+**Hoe Week 4 hieraan bijdraagt** (substantieel versterkt door case studies):
 - **KPI's berekenen**: Value-added ratio, utilization, lead time
 - **Waste detectie**: Evalueren hoeveel verspilling er is (TIM WOOD %)
 - **Simulatie resultaten interpreteren**: Is verbetering significant? (confidence intervals)
 - **Reflectie**: Evalueren trade-offs en business case
 
-**Assessment**: Studenten evalueren impact van hun TO-BE scenario met metrieken
+#### **Case Studies voor diepere evaluatie**
+
+De 4 case studies bieden concrete context voor kritische evaluatie:
+
+- **Uber case**: Evalueren wanneer operational quality ≠ operational excellence
+  - 99% uptime + 15M trips/dag = quality metrics
+  - Maar: 60-80h werkweken, minimum wage na kosten = excellence vraagstuk
+  - **Evaluatie skill**: Onderscheid maken tussen efficiency metrics en holistische success criteria
+
+- **Amazon case**: Evalueren van corporate narratives vs. systemic data
+  - Claim: "300k employees trained for new roles" (success metric = # trained)
+  - Reality: Employment flat at 1.5M since 2022 (alternative metric = # employed)
+  - **Evaluatie skill**: Kritisch beoordelen welke metrieken relevant zijn
+
+- **Microsoft case**: Evalueren van test methodology
+  - Claim: "AI 4× more accurate than doctors"
+  - Context: Doctors tested WITHOUT usual tools (unfair comparison)
+  - **Evaluatie skill**: Methodologische validiteit beoordelen
+
+- **Dark Factories case**: Evalueren van speed vs. organizational learning trade-off
+  - ZEEKR: 300k cars/jaar in 3 jaar (speed)
+  - Tesla: 10+ jaar voor zelfde volume (learning curve)
+  - **Evaluatie skill**: Long-term vs. short-term waarde afwegen
+
+**Assessment**: Studenten evalueren impact van hun TO-BE scenario met metrieken + reflecteren op case trade-offs
 
 ---
 
-**Focus van Week 4**: Primair **Diagnosticeren** (60%) en **Ontwerpen** (30%), secundair Veranderen en Evalueren (10%). Dit past bij propedeuseniveau waar foundation skills worden gelegd.
+### 2.5 "Respect for People" - Kritische Reflectie
+
+Traditionele Lean heeft twee pijlers:
+
+1. **Continuous Improvement** (Kaizen)
+2. **Respect for People**
+
+Week 4 confronteert studenten met fundamentele vraag: **Kan "Respect for People" bestaan in Lean 4.0?**
+
+#### **Case-based reflectie**
+
+**Uber case**:
+
+- Traditional Lean: Operators stop production line, suggest improvements, job security through contribution
+- Uber's Lean 4.0: Algorithms optimize, drivers accept changes, job security through... flexibility?
+- **Vraag**: Is algorithmic management "respectful"?
+
+**Dark Factories case**:
+
+- Toyota's motto: "Build people before building products"
+- Dark Factories: "Eliminate people, build products 24/7"
+- **Vraag**: Kun je "respect for people" hebben in factory zonder people?
+
+**Amazon case**:
+
+- Aaron Martin (upskilled worker): "This isn't Terminator"
+- Jacob Ward (analyst): "They're NOT going to be that technical. Just say 'Hey robot, grab this.'"
+- **Vraag**: Is "upskilling" genuine respect, of PR narrative voor job displacement?
+
+**Microsoft case**:
+
+- If AI diagnoses 4× better than doctors, what's the moral case for keeping humans?
+- Is efficiency **always** the ultimate value?
+- **Vraag**: Where does "respect for people" actually mean something?
+
+#### **Synthesis vraag voor studenten**
+
+> *"In an economy optimized by AI for maximum efficiency, what is the role of people? Are we partners (man with machine)? Supervisors (humans manage robots)? Beneficiaries (efficiency gains → better life)? Or temporary (until AI is good enough)?"*
+
+Deze vraag verbindt **alle vier** DOVE-leeruitkomsten:
+
+- **D**: Diagnosticeren van automation impact across skill levels
+- **O**: Ontwerpen van systemen die efficiency EN wellbeing balanceren
+- **V**: Veranderen van organisaties en society-level policies
+- **E**: Evalueren van success metrics (GDP? Employment? Worker happiness? All three?)
+
+**Assessment**: Studenten reflecteren op deze vraag in hun assignment (onderdeel van Criterium E: Evalueren, 20% van rubric)
+
+---
+
+**Focus van Week 4**:
+
+- **Diagnosticeren** (40%): Tools + techniques (Ishikawa, VSM, TIM WOOD, Process Mining)
+- **Ontwerpen** (30%): Hybride Lean 4.0 solutions met meervoudige waardencreatie
+- **Evalueren** (25%): Case-based kritische reflectie op trade-offs en stakeholder impact
+- **Veranderen** (5%): Borgingsstrategieën en implementatie-uitdagingen
+
+**Verschuiving t.o.v. versie 1.0**: Evalueren sterker (10% → 25%) door toevoeging case studies, waardoor studenten diepere kritische analyse ontwikkelen.
 
 ---
 
@@ -320,7 +420,7 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 
 ### 4.2 Voor Studenten
 
-**Student Workbook** (5-6 pagina's PDF):
+**Student Workbook** (7-8 pagina's PDF):
 1. **Leerdoelen** + DOVE-cyclus mapping (waar draagt Week 4 aan bij?)
 2. **Conventionele Lean cheat sheet**:
    - Ishikawa template (blank)
@@ -332,6 +432,12 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 5. **Opdracht template**: AS-IS (D) / TO-BE (O) / Borging (V) / Impact (E)
 6. **Skill Progression Checklist** (met DOVE-labels)
 7. **Reflectievragen**
+8. **Case Studies Pagina** (1-2 pagina's):
+   - Samenvattingen van 4 cases (150 woorden each)
+   - 2-3 discussievragen per case (uit complete set in background-material/)
+   - QR codes naar full videos
+   - **Synthesis vraag**: Role of people in optimized economy
+   - Instructie: "Kies 1-2 cases voor assignment reflectie (Criterium E: Evalueren)"
 
 **Templates** (printbaar):
 - Ishikawa diagram (A3 format)
