@@ -293,3 +293,57 @@ PAUL SOLMAN: Because of the information you and I provide.
 From San Francisco, this is "PBS NewsHour" business and economics correspondent Paul
 8:28
 Solman.
+
+---
+
+## Discussion Questions for Students
+
+### 1. Operational Quality vs. Excellence
+**Context**: Uber has operational quality (99% uptime, efficient matching, 15M trips/dag).
+
+**Vraag**: Maar is dit operational excellence? Wat ontbreekt er?
+- Lean principe: "Respect for people" - zie je dat hier?
+- Als je alleen naar efficiency metrics kijkt (uptime, matching speed), zie je dan de 60-80 uur werkweken?
+
+### 2. TIM WOOD Analyse met Big Data (Table VII #4)
+**Context**: Uber's algoritmes optimaliseren continu voor waste reduction.
+
+**Vragen**:
+- Welke verspillingen detecteert de algoritme succesvol? (Waiting via surge, Motion via routing)
+- Welke verspillingen ziet de algoritme NIET? (Overprocessing = 80h werkweken om rond te komen)
+- Trade-off: Wat optimaliseer je, en wat negeer je bewust?
+- Is "driver flexibility" een feature of een bug?
+
+### 3. DOVE-cyclus toepassen
+**Context**: Uber's data-driven improvement cycle.
+
+**Analyse per fase**:
+- **Diagnosticeren**: Gender pay gap is 7% - is dit een probleem dat opgelost moet worden?
+- **Ontwerpen**: Voorstel = meer gewicht op "per-minute" vs. "per-mile" payment. Wie profiteert hiervan?
+- **Veranderen**: Drivers moeten nieuwe terms accepteren zonder onderhandeling. Is dit "change management"?
+- **Evalueren**: Success metric = driver retention vs. customer satisfaction. Waarom niet "driver wellbeing"?
+
+**Kernvraag**: Waar zit de zwakke schakel in deze DOVE-cyclus?
+
+### 4. Lean 4.0 Paradox: Data-driven excellence zonder human insight?
+**Context**: Industry 4.0 tools (IoT tracking, AI optimization, Big Data) enable perfect efficiency.
+
+**Vragen**:
+- Conflicteert dit met Lean's "go see" (Gemba) en "ask why 5 times"?
+- Uber's economists runnen 1000+ A/B tests per jaar. Maar vragen ze drivers "Why?"
+- Kun je data-driven excellence hebben zonder human insight?
+- Quote van video: "The economist's dream can be the worker's nightmare" - wat zegt dit over wie beslist wat "improvement" is?
+
+### 5. "Respect for People" in de Gig Economy
+**Context**: Uber's model = independent contractors met volledige flexibiliteit.
+
+**Dilemma's**:
+- Is flexibiliteit "respect" als het betekent: geen vaste uren, geen benefits, accepteer elke algoritme update?
+- Mostafa Maklad: "Forced to work 60-80 hours" - is dit respectvol?
+- Michael Martinez: "We have absolutely no power whatsoever" - is dit Lean's "operator empowerment"?
+
+**Vergelijking**:
+- Toyota's Lean: Operators stoppen de lijn, voorstellen improvements, krijgen training
+- Uber's Lean 4.0: Algoritme stopt/start werk, drivers accepteren changes, betalen zelf voor training
+
+**Vraag**: Zijn dit hetzelfde, of is "Lean 4.0" een fundamenteel andere filosofie?

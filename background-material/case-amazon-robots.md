@@ -799,3 +799,135 @@ PEOPLE HARD.
 >> YEAH. THAT'S TRUE. WELL,
 4:01
 THANK YOU FOR
+
+---
+
+## Discussion Questions for Students
+
+### 1. The 6th S - Substitute
+**Context**: Traditional Lean's 5S = Sort, Set in order, Shine, Standardize, Sustain. Amazon adds unofficial 6th S: **Substitute** (humans with robots).
+
+**Vragen**:
+- Is "Substitute" een logische evolutie van 5S, of fundamenteel anders?
+- 5S gaat over workplace organization. Wat zegt het als je "workers" zelf als iets ziet dat georganiseerd/vervangen moet worden?
+- Amazon VP: "Man with machine, not man versus machine" - maar video toont 1M+ robots, 27k layoffs, 600k niet-aangenomen mensen. Wat is de waarheid?
+- Als Sustain (5S #5) betekent "maintain improvements over time", wat sustain je dan? Process efficiency of workforce?
+
+**Table VII Link**:
+- Welke combinatie beschrijft Amazon's strategie?
+- #15: Continuous Improvement + Machine Learning? (robots leren, mensen niet?)
+- Of is dit iets nieuws: "5S + Workforce Substitution"?
+
+### 2. Drie Narratieven - Welke is waar?
+**Context**: Video 1 (Aaron Martin: upskilling success), Video 2 (Scott Dresser: man WITH machine), Video 3 (Jacob Ward: systemic job replacement + 27k layoffs)
+
+**Analyse**:
+- **Video 1 Narrative**: Aaron Martin ging van bin-stocking naar robot programming. "This isn't Terminator."
+- **Video 2 Narrative**: VP Robotics toont facility, zegt "robots create new jobs like maintenance engineers."
+- **Video 3 Narrative**: Jacob Ward: "They're NOT going to be that technical. You just say 'Hey robot, grab this.'"
+
+**Vragen**:
+- Alle drie videos zijn "waar", maar welke vertelt het **hele** verhaal?
+- Aaron Martin = 1 persoon. Hoeveel Aaron Martins zijn er vs. hoeveel vervangen workers?
+- Scott Dresser laat zien: "2500 employees" in facility van 3 million sq ft met 1000 robots. Ratio = 2.5 workers per robot. Houdbaar?
+- Jacob Ward's punt: Als robots zo easy-to-program worden, waarom zou je überhaupt workers "upskill"?
+
+**Lean principe**: Ga naar Gemba, observeer zelf. Maar welke Gemba: Innovation Lab (Video 1), Corporate Tour (Video 2), of data analysis (Video 3)?
+
+### 3. "Upskilling" - Mythe of Realiteit?
+**Context**:
+- Amazon claim: "300,000 US employees trained for new roles"
+- Reality check: Employee count flat at 1.5M since 2022, despite revenue growth
+- Jacob Ward: Programming = "Hey robot, grab this" - not technical
+
+**DOVE-cyclus analyse**:
+- **Diagnosticeren**: Probleem = robots vervangen repetitive tasks. Solution = upskilling?
+- **Ontwerpen**: Amazon's Career Choice program - workers betalen om te studeren tijdens werk
+- **Veranderen**: 300k trained... maar hoeveel kregen daadwerkelijk nieuwe jobs?
+- **Evalueren**: Success metric = # trained? Of # employed in new roles? Verschil is cruciaal!
+
+**Vragen**:
+- Is "upskilling" een genuine solution, of een PR narrative om job displacement te rechtvaardigen?
+- Aaron Martin's vraag: "You've got to pay to go to school" - is dit eerlijk? Wie profiteert van automation gains?
+- Als robots "create" maintenance jobs, maar eliminate 10× meer picking/packing jobs, is dat netto positief?
+
+**TIM WOOD toepassing**:
+- Amazon optimaliseert voor waste reduction: Wachttijd (robots 24/7), Motion (conveyor belts), Defects (AI quality control)
+- Maar: Is workforce reduction "waste elimination" of "value destruction"?
+
+### 4. Jevons Paradox - Efficiency Breeds Demand
+**Context**: Jacob Ward's historische punt: "When you use a thing more efficiently, you use MORE of it. When you can make more efficient use of someone's time, you're in fact going to take MORE of that time."
+
+**Jevons Paradox uitleg**:
+- 19e eeuw: Efficient steam engines → MEER coal consumption, niet minder
+- Today: Efficient robots → MORE work demanded from remaining humans, niet shorter hours
+
+**Vragen**:
+- Convictional's 32-hour week = exception. Amazon's reality = "we like to work people hard."
+- SHV1 facility = 25% more efficient than older warehouses. Wat gebeurt er met die 25% gain?
+  - Option A: Workers work 25% less hours, same pay (Convictional model)
+  - Option B: Same workers handle 25% more orders (Jevons Paradox)
+  - Option C: 20% fewer workers handle same orders, 5% cost savings to shareholders
+- Welke optie is realistisch? Welke zien we in data (flat employment, revenue growth)?
+
+**Lean 4.0 dilemma**:
+- Lean's doel: Eliminate waste to create value
+- Industry 4.0's capability: Eliminate waste with automation
+- Result: Who captures the value? Workers (time off) or shareholders (profit)?
+
+### 5. "Man with Machine" vs. "Man versus Machine"
+**Context**: Scott Dresser's claim: "It's always man with machine." Reality: 27,000 layoffs, 600,000 not hired by 2033.
+
+**Analyse**:
+- **"Man with Machine" scenario**:
+  - Robots lift 50 lbs (Cardinal), humans load trucks
+  - Robots move packages (Proteus), humans sort/pack
+  - This is current state (Video 2)
+
+- **"Man versus Machine" trajectory**:
+  - 2022: 1.5M employees
+  - 2024: Still 1.5M employees, but revenue grew
+  - 2033 projection: 600k fewer hires needed (NYT report)
+  - That's 40% workforce reduction through attrition
+
+**Vragen**:
+- Is "man with machine" a permanent state, or transition phase toward "machine without man"?
+- Dresser's quote: "Robots are always breaking down, need assistance." Is dit sustainable argument voor human jobs?
+- Als je robot maintenance engineer wordt, maar robots become more reliable (improvement goal!), is je job secure?
+
+**Respect for People vergelijking**:
+- **Toyota's Lean**: Operators improve processes, gain skills, job security through contribution
+- **Amazon's Lean 4.0**: Robots improve efficiency, workers retrain, job security through... what exactly?
+
+**Fundamentele vraag**:
+- If Lean's goal is "eliminate waste," and human labor is expensive/error-prone, is human labor inherently "waste"?
+- Or is "respect for people" a constraint that limits optimization?
+
+### 6. Alternative Futures - 32-Hour Week vs. Warehouse Expansion
+**Context**: Video 3 shows two paths:
+- Path A (Convictional): Use AI gains → 32-hour week, no pay cut
+- Path B (Amazon): Use automation gains → same hours, more output, higher profits
+
+**Vergelijking**:
+| Dimension | Convictional (Path A) | Amazon (Path B) |
+|-----------|----------------------|-----------------|
+| **Efficiency gains** | Shared with workers (time) | Captured by shareholders (profit) |
+| **Worker wellbeing** | Reduced burnout, more creativity | "We like to work people hard" |
+| **Lean principle** | Kaizen = improve work for workers | Kaizen = improve output for customers |
+| **Sustainability** | Startup, private, founder control | Public company, shareholder pressure |
+
+**Vragen**:
+- Jacob Ward: "As soon as that guy goes public, he's under all kinds of pressure." Wat zegt dit over capitalism vs. Lean values?
+- Is Path A (Convictional) realistic at scale? Or only possible for small startups?
+- Bernie Sanders' 32-hour workweek bill: "Not going anywhere in today's Senate." Waarom niet? What does this say about societal priorities?
+- Als we als society willen dat efficiency gains → better work/life balance instead of just → higher profits, what needs to change?
+
+**DOVE-cyclus voor society-level change**:
+- **Diagnosticeren**: Automation creates productivity gains, but workers don't benefit
+- **Ontwerpen**: Policy options (4-day week laws, profit-sharing mandates, UBI, etc.)
+- **Veranderen**: How do you implement against shareholder pressure?
+- **Evalueren**: What does success look like? GDP growth? Worker happiness? Both?
+
+**Kernvraag**:
+- Is "Lean 4.0" inherently aligned with shareholder capitalism?
+- Or can we design Lean 4.0 systems that prioritize worker wellbeing equally with efficiency?

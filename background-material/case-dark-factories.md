@@ -212,3 +212,90 @@ a huge issue for the industry.
 But this doesn't dent ZEEKR's confidence
 5:08
 in China's capacity to consume.
+
+---
+
+## Discussion Questions for Students
+
+### 1. Gemba Walk Paradox
+**Context**: Traditionele Lean: "Go see" = physically walk the floor, observe waste, talk to operators.
+
+**Vragen**:
+- Wat zie je in een dark factory? Wat kun je NIET zien?
+- Als je geen operators kunt vragen "Why?", hoe doe je dan root cause analysis?
+- ZEEKR produceert 800 cars/day in 3 jaar tijd (vs. Tesla 10+ jaar). Wat leer je NIET als je deze learning curve overslaat?
+- Is een "Gemba Walk" in een dark factory nog wel Gemba? Of is het gewoon een factory tour?
+
+### 2. Table VII Combinaties - Welke lost het Gemba probleem op?
+**Context**: Lean 4.0 combineert traditionele Lean tools met Industry 4.0 technologieën.
+
+**Opties om te overwegen**:
+- **#1**: Gemba Walk + Digital Twin = Virtual factory tour met real-time IoT data?
+- **#6**: VSM + Process Mapping Software = Live dashboard ipv clipboards?
+- **#10**: Jidoka + AI-Powered Monitoring = Robots stoppen zichzelf bij afwijkingen?
+
+**Discussie**:
+- Welke combinatie lost het "no humans to observe" probleem op?
+- Wat gaat er verloren als je Gemba Walk vervangt door een dashboard?
+- Kan een Digital Twin dezelfde inzichten geven als physical presence?
+
+### 3. "Respect for People" - Kan dat zonder people?
+**Context**: Lean principe: Operators zijn experts, continuous improvement komt van de vloer.
+
+**Fundamentele vragen**:
+- Kun je "respect for people" hebben in een factory zonder people?
+- Is extreme automation het **ultieme** Lean (elimineer alle verspilling), of het **tegenovergestelde**?
+- ZEEKR's workers: Cable assembly, robot maintenance. Is dit "respect" (veilig werk) of marginalisering?
+
+**Vergelijking**:
+- Toyota's Lean: "Build people before building products"
+- Dark Factories: "Eliminate people, build products 24/7"
+
+**Vraag**: Zijn deze filosofieën nog familie van elkaar?
+
+### 4. Speed vs. Learning Trade-off
+**Context**: ZEEKR behaalt in 3 jaar wat Tesla in 10+ deed.
+
+**Analyse**:
+- Tesla's 10 jaar: Failures, Kaizen, operator feedback, iterative learning
+- ZEEKR's 3 jaar: Copy best practices, automate immediately, skip learning curve
+- **Vraag**: Mis je iets als je deze learning curve overslaat met automation?
+
+**Organizational Learning perspectief**:
+- Tesla learned HOW to make EVs (organizational capability)
+- ZEEKR learned THAT you can automate EV production (implementation)
+- Verschil: Knowledge creation vs. knowledge application
+
+**Toekomst scenario**:
+- Als markt verandert, wie kan zich sneller aanpassen?
+- Company met 10 jaar learning experience (Tesla)?
+- Of company met 3 jaar automation experience (ZEEKR)?
+
+### 5. "Made in China 2025" - Volume of Value?
+**Context**: 50% van alle industrial robots worldwide, 7× growth since 2015.
+
+**Dilemma's**:
+- **Volume**: ZEEKR produceert 300,000 cars/jaar, maar most sold domestically (overcapacity)
+- **Value**: Is dit Lean's "value for customer" als je overproductie hebt?
+- **TIM WOOD**: Overproduction = waste #1 in traditional Lean. Maar dark factories maken overproductie gemakkelijk!
+
+**Discussie**:
+- China's strategie: "Produce enough to export + dominate markets"
+- Lean's principe: "Produce only what customer pulls (Just-In-Time)"
+- **Vraag**: Is "Made in China 2025" eigenlijk anti-Lean? Of is dit Lean at national scale?
+
+### 6. Western Automakers Dilemma
+**Context**: Ford/GM scale back EV plans, hampered by labor costs and unions.
+
+**Trade-offs**:
+- **China**: No unions, less regulation, fast automation → Overcapacity
+- **West**: Labor unions, safety regulations, slow automation → Can't compete
+
+**Vragen**:
+- Is labor regulation "waste" (verhoogt costs) of "value" (beschermt workers)?
+- Chinese advantage: "Fewer impediments to automation" - is dit eerlijk?
+- If West adopts dark factories to compete, wat gebeurt er met workers?
+
+**Lean 4.0 ethiek**:
+- Efficiency competition → Race to the bottom (eliminate all labor)?
+- Or: Different models can coexist (high-automation vs. high-labor)?
