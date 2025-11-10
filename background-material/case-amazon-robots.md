@@ -1,11 +1,17 @@
 ## Title
 "Amazon's Robot Revolution: Upskilling or Unemployment?"
 
-## Video
+## Video 1
 https://youtu.be/EpfbrD0AVZ4?si=VBMeBDboItgAAy-H
 
-## Thumbnail
+## Thumbnail 1
 https://img.youtube.com/vi/EpfbrD0AVZ4/maxresdefault.jpg
+
+## Video 2
+https://youtu.be/rwwa1ESzOc0?si=EBh7Zk1zlCc4WX4k
+
+## Thumbnail 2
+https://img.youtube.com/vi/rwwa1ESzOc0/maxresdefault.jpg
 
 ## Transcript
 
@@ -207,3 +213,252 @@ THREE YEARS IN PART BECAUSE
 OF AI.
 2:38
 SO HIRING WILL SLOW.
+
+---
+
+## Transcript 2
+
+0:00
+This morning marks exactly three months
+0:01
+from Christmas and companies are already
+0:03
+planning for the holiday retail rush.
+0:05
+43% of Americans intend to start their
+0:07
+holiday shopping before Halloween this
+0:10
+year. That's their intention anyway.
+0:11
+We'll see how that goes. According to
+0:13
+one study, Money Watch correspondent got a
+0:15
+behind-the-scenes look at how Amazon is
+0:17
+using robots to speed up deliveries. But
+0:20
+will those robots lead to job cuts for
+0:22
+humans?
+0:24
+When you click buy this holiday season,
+0:26
+there's a good chance
+0:29
+a robot like this is helping to fulfill
+0:31
+your order. And with online holiday
+0:33
+sales expected to grow up to 9% over
+0:36
+last year, major retailers, including
+0:38
+Walmart and Amazon, along with shipping
+0:40
+carriers like UPS and FedEx are
+0:42
+investing big in robotics. So, what does
+0:45
+all that automation mean for the holiday
+0:47
+season? We're in Shreveport, Louisiana,
+0:49
+getting a behind-the-scenes tour of
+0:51
+Amazon's most advanced fulfillment
+0:53
+center. It's called SHV1, and at more
+0:56
+than 3 million square feet, Amazon says
+0:59
+it's one of the company's largest
+1:00
+facilities.
+1:01
+We have a number of different types of
+1:03
+new robotics that we're using to fulfill
+1:05
+customer orders.
+1:06
+Is that one of them?
+1:07
+Great example of one right here. A very
+1:09
+noisy one right here.
+1:10
+Scott Dresser is Amazon's vice president
+1:12
+of robotics. He introduced us to that
+1:15
+robot in Proteus, one of almost a
+1:17
+thousand in SHV1.
+1:19
+So, does this facility run 24/7?
+1:21
+So, it can run 24 hours a day and the
+1:24
+robots we designed to run all day long
+1:25
+if they if they need to. Certainly, as
+1:28
+we come into our peak holiday season,
+1:30
+which we're already getting ready for,
+1:31
+that's something we think about a lot
+1:32
+because we will have to run the building
+1:34
+almost all all day around.
+1:35
+When a customer orders a product, the
+1:37
+robots get to work. These ones move the
+1:39
+item out of storage. Then one of the
+1:42
+2500 employees sorts it while another
+1:44
+packs it before it travels along some of
+1:47
+the nearly 15 miles of conveyor belts to
+1:50
+get labeled. Meet Cardinal.
+1:52
+Cardinal is lifting packages that weigh
+1:54
+up to 50 lbs. And then we can use
+1:56
+Proteus to take the the container over
+1:59
+to the dock. So a lot of it's less about
+2:00
+performance, more about making sure that
+2:02
+our employees are safe.
+2:03
+The final step here, a human loads the
+2:05
+packages onto a truck. Dresser says SHV1
+2:09
+is 25% more efficient than other
+2:11
+fulfillment centers.
+2:12
+If you're ordering an order here in
+2:14
+Shreveport right before Christmas and
+2:16
+you need that by Christmas, robots are
+2:18
+going to help make sure we get that
+2:19
+product to you fast, safely, and
+2:21
+accurately.
+2:21
+He says while the robots are replacing
+2:24
+some jobs, they're also creating new
+2:26
+ones. Every time we're able to grow and
+2:28
+expand the network, which robotics has
+2:30
+enabled over the last decade, we're able
+2:32
+to add new jobs like our robotics
+2:34
+maintenance engineers, people that we
+2:36
+need in the operation now that we have
+2:37
+these new robotics to help us run the
+2:39
+building.
+2:40
+While Amazon's revenue has grown, its
+2:42
+number of employees has held steady
+2:44
+around 1.5 million since 2022.
+2:47
+You are a public company. You have a
+2:48
+duty to your shareholders to maximize
+2:51
+profit. At what point does that become
+2:55
+more important than ensuring that
+2:58
+there's always a human element dealing
+3:01
+with something like Proteus?
+3:02
+The thing that we think of most when
+3:04
+we're when we're deploying a a new
+3:06
+fulfillment operation or a new process
+3:08
+in a fulfillment operation is how are
+3:10
+people and robots best going to be able
+3:12
+to do that together?
+3:13
+So, man with machine versus man versus
+3:16
+machine.
+3:16
+It's always man with machine.
+3:19
+Now, he added that Amazon is offering
+3:21
+training for employees whose positions
+3:23
+are being replaced and shared those more
+3:25
+advanced jobs pay better. When we
+3:27
+pressed him on if those jobs could ever
+3:30
+be replaced, he said robots, they're
+3:31
+always breaking down. They need
+3:33
+assistance and that humans will be
+3:35
+needed for those roles.
+3:36
+How did you feel being there?
+3:38
+It felt very advanced, but it was a
+3:40
+little bit strange. You just have these
+3:42
+robots moving around, but they have
+3:43
+those googly eyes. They're kind of cute.
+3:45
+Uh-oh. Anthropomorphicizing. Is that the
+3:48
+word we learned yesterday? Saw a face on
+3:50
+humanizing. Yes.
+3:51
+Take those eyes off of there. We got to
+3:53
+remind ourselves it's a robot.
+3:55
+Kelly, thank you very much. Appreciate
+3:56
+it. Good luck to those people planning
+3:57
+to shop for Christmas before
+3:59
+[Music]
