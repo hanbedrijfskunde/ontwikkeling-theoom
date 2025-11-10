@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Process Mining Simulator: Zuivel Procurement - Mastermodule</title>
+
+    <!-- External CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chart.js with multiple fallback sources -->
+    <script>
+      window.chartJsLoaded = false;
+
+      function loadChartJs() {
+        const sources = [
+          "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js",
+          "https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js",
+          "https://unpkg.com/chart.js@3.9.1/dist/chart.min.js",
+        ];
+
+        let currentIndex = 0;
+
+        function tryLoadChart() {
+          if (currentIndex >= sources.length) {
+            console.error("All Chart.js sources failed to load");
+            return;
+          }
+
+          const script = document.createElement("script");
+          script.src = sources[currentIndex];
+          script.onload = () => {
+            // Add small delay to ensure Chart.js is fully initialized
+            setTimeout(() => {
+              if (
+                typeof Chart !== "undefined" &&
+                Chart &&
+                typeof Chart === "function"
+              ) {
+                window.chartJsLoaded = true;
+                console.log(
+                  "Chart.js loaded and verified from:",
+                  sources[currentIndex]
+                );
+              } else {
+                console.warn("Chart.js script loaded but Chart not available");
+                currentIndex++;
+                tryLoadChart();
+              }
+            }, 100);
+          };
+          script.onerror = () => {
+            console.info(
+              `Trying next Chart.js source (${currentIndex + 1}/${
+                sources.length
+              })`
+            );
+            currentIndex++;
+            tryLoadChart();
+          };
+          document.head.appendChild(script);
+        }
+
+        tryLoadChart();
+      }
+
+      loadChartJs();
+    </script>
+
+    <!-- Mermaid.js with fallback and static alternative -->
+    <script>
+      window.mermaidLoaded = false;
+
+      function loadMermaid() {
+        const sources = [
+          "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js",
+          "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js",
+          "https://unpkg.com/mermaid@10/dist/mermaid.min.js",
+        ];
+
+        let currentIndex = 0;
+
+        function tryLoadMermaid() {
+          if (currentIndex >= sources.length) {
+            console.info("All Mermaid.js sources failed, using static diagram");
+            document.addEventListener("DOMContentLoaded", () => {
+              const mermaidElements = document.querySelectorAll(".mermaid");
+              mermaidElements.forEach((el) => {
+                el.innerHTML = createStaticDiagram();
+              });
+            });
+            return;
+          }
+
+          const script = document.createElement("script");
+          script.src = sources[currentIndex];
+          script.onload = () => {
+            try {
+              if (typeof mermaid !== "undefined") {
+                mermaid.initialize({
+                  startOnLoad: true,
+                  theme: "base",
+                  fontFamily: '"Red Hat Text", sans-serif',
+                  themeVariables: {
+                    primaryColor: "#E0F2FE",
+                    primaryTextColor: "#374151",
+                    primaryBorderColor: "#C6E7FF",
+                    lineColor: "#005A8D",
+                    textColor: "#374151",
+                    nodeBorderRadius: "8px",
+                    fontSize: "14px",
+                  },
+                  flowchart: {
+                    nodeSpacing: 80,
+                    rankSpacing: 90,
+                    padding: 20,
+                    useMaxWidth: true,
+                    htmlLabels: true,
+                  },
+                  securityLevel: "strict",
+                });
+
+                window.mermaidInstance = mermaid;
+                window.mermaidLoaded = true;
+                console.log(
+                  "Mermaid.js loaded successfully from:",
+                  sources[currentIndex]
+                );
+              } else {
+                throw new Error("Mermaid not available after loading");
+              }
+            } catch (error) {
+              console.info(
+                `Mermaid.js loaded but failed to initialize, trying next source...`
+              );
+              currentIndex++;
+              tryLoadMermaid();
+            }
+          };
+          script.onerror = () => {
+            console.info(
+              `Trying next Mermaid.js source (${currentIndex + 1}/${
+                sources.length
+              })`
+            );
+            currentIndex++;
+            tryLoadMermaid();
+          };
+          document.head.appendChild(script);
+        }
+
+        tryLoadMermaid();
+      }
+
+      function createStaticDiagram() {
+        return `
+          <div class="static-process-diagram">
+            <svg viewBox="0 0 800 600" class="w-full h-auto max-h-96">
+              <!-- Start Node -->
+              <rect x="50" y="50" width="120" height="60" rx="8" fill="#DBEAFE" stroke="#60A5FA" stroke-width="2"/>
+              <text x="110" y="75" text-anchor="middle" class="text-sm font-medium">Aanvraag PR</text>
+              <text x="110" y="90" text-anchor="middle" class="text-sm font-medium">Gemaakt</text>
+              
+              <!-- Arrow -->
+              <path d="M170 80 L190 80" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+              
+              <!-- PO Node -->
+              <rect x="200" y="50" width="120" height="60" rx="8" fill="#E0F2FE" stroke="#C6E7FF" stroke-width="2"/>
+              <text x="260" y="75" text-anchor="middle" class="text-sm font-medium">PO Gemaakt &</text>
+              <text x="260" y="90" text-anchor="middle" class="text-sm font-medium">Goedgekeurd</text>
+              
+              <!-- Arrow -->
+              <path d="M320 80 L340 80" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+              
+              <!-- PO Verzonden -->
+              <rect x="350" y="50" width="120" height="60" rx="8" fill="#E0F2FE" stroke="#C6E7FF" stroke-width="2"/>
+              <text x="410" y="80" text-anchor="middle" class="text-sm font-medium">PO Verzonden</text>
+              
+              <!-- Arrow down -->
+              <path d="M410 110 L410 130" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+              
+              <!-- Goederen Ontvangen -->
+              <rect x="350" y="140" width="120" height="60" rx="8" fill="#E0F2FE" stroke="#C6E7FF" stroke-width="2"/>
+              <text x="410" y="165" text-anchor="middle" class="text-sm font-medium">Goederen</text>
+              <text x="410" y="180" text-anchor="middle" class="text-sm font-medium">Ontvangen</text>
+              
+              <!-- Arrow down -->
+              <path d="M410 200 L410 220" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+              
+              <!-- Quality Control Decision -->
+              <polygon points="410,230 450,260 410,290 370,260" fill="#FFF7ED" stroke="#FB923C" stroke-width="2"/>
+              <text x="410" y="255" text-anchor="middle" class="text-xs font-medium">Kwaliteit</text>
+              <text x="410" y="270" text-anchor="middle" class="text-xs font-medium">OK?</text>
+              
+              <!-- Success Path -->
+              <path d="M450 260 L500 260" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+              <text x="475" y="250" text-anchor="middle" class="text-xs fill-green-600">✓ Ja</text>
+              
+              <rect x="510" y="230" width="100" height="60" rx="8" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="2"/>
+              <text x="560" y="255" text-anchor="middle" class="text-sm font-medium">Factuur</text>
+              <text x="560" y="270" text-anchor="middle" class="text-sm font-medium">Betaald</text>
+              
+              <!-- Problem Path -->
+              <path d="M410 290 L410 330" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+              <text x="430" y="315" text-anchor="start" class="text-xs fill-red-600">✗ Nee</text>
+              
+              <rect x="350" y="340" width="120" height="60" rx="8" fill="#FEFCE8" stroke="#FDE047" stroke-width="2"/>
+              <text x="410" y="365" text-anchor="middle" class="text-sm font-medium">Probleem</text>
+              <text x="410" y="380" text-anchor="middle" class="text-sm font-medium">Afhandeling</text>
+              
+              <!-- Arrow marker definition -->
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                        refX="10" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+                </marker>
+              </defs>
+              
+              <!-- Legend -->
+              <rect x="50" y="480" width="200" height="80" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1" rx="4"/>
+              <text x="60" y="500" class="text-sm font-semibold">Proces Stappen:</text>
+              <circle cx="70" cy="515" r="5" fill="#DBEAFE"/>
+              <text x="85" y="520" class="text-xs">Start/Eind punten</text>
+              <circle cx="70" cy="535" r="5" fill="#E0F2FE"/>
+              <text x="85" y="540" class="text-xs">Normale activiteiten</text>
+              <polygon points="70,548 75,553 70,558 65,553" fill="#FFF7ED" stroke="#FB923C"/>
+              <text x="85" y="558" class="text-xs">Beslissingsmomenten</text>
+            </svg>
+          </div>
+        `;
+      }
+
+      loadMermaid();
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          font-family: "Red Hat Text", sans-serif;
+          scroll-behavior: smooth;
+        }
+
+        body {
+          line-height: 1.6;
+        }
+      }
+
+      @layer components {
+        .content-section {
+          @apply mb-12 p-6 bg-white rounded-xl shadow-xl border border-gray-100;
+        }
+
+        .content-section h2 {
+          @apply text-3xl font-bold text-gray-800 mb-6 pb-3 border-b-4 border-[#FFDDAE];
+        }
+
+        .content-section h3 {
+          @apply text-2xl font-semibold text-gray-700 mt-8 mb-4;
+        }
+
+        .content-section h4 {
+          @apply text-xl font-medium text-gray-700 mt-6 mb-3;
+        }
+
+        .content-section p,
+        .content-section ul {
+          @apply text-gray-600 leading-relaxed mb-4;
+        }
+
+        .content-section ul {
+          @apply list-disc list-inside ml-4;
+        }
+
+        .content-section code {
+          @apply bg-gray-800 text-gray-100 p-4 rounded-md block whitespace-pre-wrap font-mono text-xs shadow-inner overflow-x-auto;
+          max-height: 300px;
+        }
+
+        .btn-primary {
+          @apply inline-flex items-center justify-center bg-[#005A8D] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#005A8D] focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+        }
+
+        .btn-secondary {
+          @apply inline-flex items-center justify-center bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50;
+        }
+
+        .back-link {
+          @apply inline-block mb-8 text-[#005A8D] hover:text-[#FFDDAE] font-semibold transition-colors duration-200 focus:outline-none focus:underline;
+        }
+
+        .loading-spinner {
+          @apply animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full;
+        }
+
+        .mermaid-container {
+          @apply bg-white p-6 rounded-lg shadow-lg border border-gray-200 overflow-x-auto;
+          min-height: 400px;
+        }
+
+        .static-process-diagram {
+          @apply w-full flex justify-center items-center;
+        }
+
+        .result-block {
+          @apply mt-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl shadow-inner border border-gray-200;
+        }
+
+        .result-block h4 {
+          @apply text-lg font-semibold text-[#005A8D] mb-4 flex items-center;
+        }
+
+        .result-block h4::before {
+          @apply content-[''] w-4 h-4 bg-[#005A8D] rounded-full mr-3;
+        }
+
+        .discovered-path {
+          @apply bg-white p-3 rounded-lg shadow-sm mb-3 border-l-4 text-sm transition-all duration-200 hover:shadow-md;
+        }
+
+        .path-step {
+          @apply inline-block p-2 bg-gray-100 rounded-md mr-2 mb-1 text-xs font-medium;
+          max-width: 150px;
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+
+        .path-frequency {
+          @apply text-sm font-bold text-blue-600 ml-2 whitespace-nowrap bg-blue-50 px-2 py-1 rounded;
+        }
+
+        .chart-container {
+          @apply relative bg-white p-4 rounded-lg shadow border border-gray-200;
+          height: 320px;
+        }
+
+        .chart-fallback {
+          @apply flex flex-col items-center justify-center h-64 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300;
+        }
+
+        .activity-grid {
+          @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3;
+        }
+
+        .activity-card {
+          @apply p-3 rounded-lg text-xs transition-all duration-200 hover:shadow-md cursor-default;
+        }
+
+        .status-message {
+          @apply px-4 py-2 rounded-lg text-sm font-medium;
+        }
+
+        .status-success {
+          @apply bg-green-100 text-green-800 border border-green-300;
+        }
+
+        .status-error {
+          @apply bg-red-100 text-red-800 border border-red-300;
+        }
+
+        .status-warning {
+          @apply bg-yellow-100 text-yellow-800 border border-yellow-300;
+        }
+
+        .status-info {
+          @apply bg-blue-100 text-blue-800 border border-blue-300;
+        }
+
+        .fallback-message {
+          @apply bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 text-center;
+        }
+      }
+
+      @layer utilities {
+        .scrollbar-thin {
+          scrollbar-width: thin;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-track {
+          background: #f1f5f9;
+          border-radius: 4px;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+          background: #c6e7ff;
+          border-radius: 4px;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+          background: #b0d9f7;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#FBFBFB] text-gray-800 antialiased">
+    <!-- Header / Navbar -->
+    <header class="bg-[#C6E7FF] shadow-md sticky top-0 z-10">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-bold text-gray-700 hover:text-gray-900 transition-colors duration-200"
+          >Excellentie door Design: AI</a
+        >
+        <nav
+          class="hidden md:flex space-x-4"
+          role="navigation"
+          aria-label="Hoofdnavigatie"
+        >
+          <a
+            href="index.html"
+            class="text-gray-700 hover:text-[#FFDDAE] transition-colors duration-200"
+            >Home</a
+          >
+          <a
+            href="over.html"
+            class="text-gray-700 hover:text-[#FFDDAE] transition-colors duration-200"
+            >Over de Module</a
+          >
+          <a
+            href="programma.html"
+            class="text-gray-700 hover:text-[#FFDDAE] font-semibold transition-colors duration-200"
+            >Programma</a
+          >
+          <a
+            href="voorbereiding.html"
+            class="text-gray-700 hover:text-[#FFDDAE] transition-colors duration-200"
+            >Voorbereiding</a
+          >
+          <a
+            href="contact.html"
+            class="text-gray-700 hover:text-[#FFDDAE] transition-colors duration-200"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors duration-200"
+          onclick="toggleMobileMenu()"
+          aria-label="Menu openen"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <nav
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-2"
+      >
+        <a
+          href="index.html"
+          class="block py-2 text-gray-700 hover:text-[#FFDDAE]"
+          >Home</a
+        >
+        <a
+          href="over.html"
+          class="block py-2 text-gray-700 hover:text-[#FFDDAE]"
+          >Over de Module</a
+        >
+        <a
+          href="programma.html"
+          class="block py-2 text-gray-700 hover:text-[#FFDDAE] font-semibold"
+          >Programma</a
+        >
+        <a
+          href="voorbereiding.html"
+          class="block py-2 text-gray-700 hover:text-[#FFDDAE]"
+          >Voorbereiding</a
+        >
+        <a
+          href="contact.html"
+          class="block py-2 text-gray-700 hover:text-[#FFDDAE]"
+          >Contact</a
+        >
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12" role="main">
+      <!-- Navigation breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mb-8">
+        <a href="programma-deel1.html" class="back-link"
+          >« Terug naar Programma Deel 1</a
+        >
+      </nav>
+
+      <!-- Page header -->
+      <header class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Process Mining Simulator
+        </h1>
+        <p class="text-xl text-gray-500 max-w-3xl mx-auto">
+          Een interactieve kijkje in de procurement van een Europees
+          zuivelhandelsbedrijf. Ontdek hoe process mining digitale sporen
+          analyseert om processen te verbeteren.
+        </p>
+      </header>
+
+      <!-- Status messages container -->
+      <div id="status-messages" class="mb-6 space-y-2"></div>
+
+      <!-- Section 1: Process Diagram -->
+      <section class="content-section" aria-labelledby="process-diagram-title">
+        <h2 id="process-diagram-title">
+          Fase 1: Het Ideale Procurement Proces
+        </h2>
+        <p class="text-lg mb-6">
+          Dit diagram toont een vereenvoudigd beeld van het inkoopproces,
+          inclusief kwaliteitscontrole en afhandeling van afwijkingen. In
+          werkelijkheid kunnen er veel meer stappen, controles, en afwijkingen
+          zijn.
+        </p>
+
+        <div id="diagram-status" class="fallback-message mb-4 hidden">
+          <div class="flex items-center justify-center space-x-2">
+            <svg
+              class="w-5 h-5 text-blue-600"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span class="text-blue-800 font-medium"
+              >Diagram wordt geladen met statische weergave (externe libraries
+              niet beschikbaar)</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="mermaid-container"
+          role="img"
+          aria-label="Flowchart van het procurement proces met kwaliteitscontrole"
+        >
+          <pre class="mermaid text-center">
+graph TD
+    A["Aanvraag PR Gemaakt<br/>(Intern)"] --> B["PO Gemaakt &<br/>Goedgekeurd"];
+    B --> C["PO Verzonden"];
+    C --> D["Goederen Ontvangen<br/>(Logistiek)"];
+    D --> QC{"Kwaliteitscontrole<br/>OK?"};
+
+    QC -->|"✓ Ja"| E_OK["Factuur Verwerken<br/>(OK Pad)"];
+    E_OK --> FPAY_OK["Factuur Betaald<br/>(OK Pad)"];
+    FPAY_OK --> G_OK["Procurement<br/>Afgerond ✓"];
+    
+    QC -->|"✗ Nee"| PM["Probleem Gemeld<br/>(Procurement)"];
+    PM --> FB["Instructie:<br/>Factuur Blokkeren"];
+    FB --> PRSLV["Procurement Lost<br/>Probleem Op"];
+    PRSLV --> SFV["Signaal:<br/>Factuur Vrijgeven"];
+    SFV --> E_NOK["Factuur Verwerken<br/>(na Fix)"];
+    E_NOK --> FPAY_NOK["Factuur Betaald<br/>(na Fix)"];
+    FPAY_NOK --> G_NOK["Procurement<br/>Afgerond ✓"];
+
+    %% Styling
+    classDef default fill:#E0F2FE,stroke:#C6E7FF,stroke-width:2px,color:#374151,rx:12,ry:12;
+    classDef decision fill:#FFF7ED,stroke:#FB923C,stroke-width:3px,color:#1F2937,rx:20,ry:20;
+    classDef problemPath fill:#FEFCE8,stroke:#FDE047,stroke-width:2px,color:#713F12,rx:12,ry:12;
+    classDef endNode fill:#D1FAE5,stroke:#6EE7B7,stroke-width:3px,color:#065F46,rx:12,ry:12;
+    classDef startNode fill:#DBEAFE,stroke:#60A5FA,stroke-width:3px,color:#1E3A8A,rx:12,ry:12;
+    
+    class A startNode;
+    class B,C,D,E_OK,FPAY_OK default;
+    class QC decision;
+    class PM,FB,PRSLV,SFV,E_NOK,FPAY_NOK problemPath;
+    class G_OK,G_NOK endNode;
+          </pre>
+        </div>
+
+        <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <h4 class="text-sm font-semibold text-blue-800 mb-2">
+            💡 Proces Uitleg
+          </h4>
+          <ul class="text-sm text-blue-700 space-y-1">
+            <li>
+              <strong>Groen pad:</strong> Normale afhandeling zonder problemen
+            </li>
+            <li>
+              <strong>Geel pad:</strong> Kwaliteitsproblemen die correct
+              afgehandeld worden
+            </li>
+            <li>
+              <strong>Oranje knoop:</strong> Beslissingsmoment voor
+              kwaliteitscontrole
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 2: Data Generation -->
+      <section class="content-section" aria-labelledby="data-generation-title">
+        <h2 id="data-generation-title">
+          Fase 2: De Digitale Sporen (ERP Logfiles)
+        </h2>
+        <p class="text-lg mb-6">
+          Hier genereren we een dataset van 500 fictieve log-entries uit een ERP
+          systeem, die verschillende procurement transacties representeren. Elke
+          entry bevat een unieke Case ID, activiteit, timestamp, en relevante
+          metadata.
+        </p>
+
+        <div
+          class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-6"
+        >
+          <h4 class="text-lg font-semibold text-indigo-800 mb-3">
+            📊 Dataset Specificaties
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <strong class="text-indigo-700">Aantal entries:</strong> 500 log
+              records<br />
+              <strong class="text-indigo-700">Tijdspanne:</strong> 2023
+              (willekeurig verdeeld)<br />
+              <strong class="text-indigo-700">Case variatie:</strong> ~80-120
+              unieke transacties
+            </div>
+            <div>
+              <strong class="text-indigo-700">Producten:</strong> 5
+              zuivelproducten<br />
+              <strong class="text-indigo-700">Leveranciers:</strong> 5 Europese
+              partners<br />
+              <strong class="text-indigo-700">Resources:</strong> 5 ERP
+              gebruikers/systemen
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          <button
+            id="generate-logs-button"
+            class="btn-primary"
+            aria-describedby="log-generation-help"
+          >
+            <span id="generate-button-text"
+              >Genereer Log Data (500 entries)</span
+            >
+            <span
+              id="generate-spinner"
+              class="loading-spinner ml-2 hidden"
+            ></span>
+          </button>
+
+          <div
+            id="log-generation-help"
+            class="text-sm text-gray-600 flex items-center"
+          >
+            Dit kan een paar seconden duren...
+          </div>
+        </div>
+
+        <div id="log-data-output" class="hidden">
+          <h4
+            class="flex items-center text-lg font-semibold text-gray-700 mb-3"
+          >
+            <svg
+              class="w-5 h-5 mr-2 text-green-600"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Gegenereerde Log Data
+          </h4>
+          <div
+            class="bg-gray-900 rounded-lg p-4 scrollbar-thin overflow-auto max-h-80"
+          >
+            <code
+              id="log-data-preview"
+              class="text-green-400 text-xs font-mono whitespace-pre-wrap"
+            >
+              Log data wordt hier getoond...
+            </code>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Process Mining -->
+      <section class="content-section" aria-labelledby="process-mining-title">
+        <h2 id="process-mining-title">Fase 3: Process Mining in Actie</h2>
+        <p class="text-lg mb-6">
+          Nu gebruiken we de gegenereerde log data om het daadwerkelijke proces
+          te "ontdekken". Dit is een vereenvoudigde vorm van process mining die
+          de meest voorkomende paden, activiteitsfrequenties en doorlooptijden
+          analyseert.
+        </p>
+
+        <div
+          class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg mb-6"
+        >
+          <h4 class="text-lg font-semibold text-purple-800 mb-3">
+            🔍 Analyse Componenten
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="bg-white p-3 rounded border border-purple-200">
+              <strong class="text-purple-700">Proces Varianten</strong><br />
+              Ontdekt de meest voorkomende paden die transacties volgen
+            </div>
+            <div class="bg-white p-3 rounded border border-purple-200">
+              <strong class="text-purple-700">Activiteit Frequenties</strong
+              ><br />
+              Toont hoe vaak elke stap in het proces voorkomt
+            </div>
+            <div class="bg-white p-3 rounded border border-purple-200">
+              <strong class="text-purple-700">Doorlooptijd Analyse</strong
+              ><br />
+              Meet tijd tussen PO goedkeuring en factuur betaling
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <button
+            id="run-mining-button"
+            class="btn-primary opacity-50 cursor-not-allowed"
+            disabled
+            aria-describedby="mining-help"
+          >
+            <span id="mining-button-text">Start Process Mining</span>
+            <span
+              id="mining-spinner"
+              class="loading-spinner ml-2 hidden"
+            ></span>
+          </button>
+
+          <p id="mining-help" class="text-sm text-gray-600 mt-2">
+            Genereer eerst log data om deze functie te activeren.
+          </p>
+        </div>
+
+        <!-- Results Container -->
+        <div id="mining-results-container" class="result-block hidden">
+          <!-- Process Paths -->
+          <div class="mb-8">
+            <h4 id="paths-title">Ontdekte Proces Varianten & Frequenties</h4>
+            <p class="text-sm text-gray-600 mb-4">
+              De meest voorkomende paden die transacties hebben gevolgd. Kleuren
+              geven de "gezondheid" van het pad aan.
+            </p>
+
+            <div class="mb-4 flex flex-wrap gap-2 text-xs">
+              <span class="flex items-center">
+                <span
+                  class="w-3 h-3 bg-green-300 border border-green-400 rounded mr-1"
+                ></span>
+                Normaal pad
+              </span>
+              <span class="flex items-center">
+                <span
+                  class="w-3 h-3 bg-yellow-300 border border-yellow-400 rounded mr-1"
+                ></span>
+                Met problemen (correct afgehandeld)
+              </span>
+              <span class="flex items-center">
+                <span
+                  class="w-3 h-3 bg-red-300 border border-red-400 rounded mr-1"
+                ></span>
+                Kritiek (onterechte betaling)
+              </span>
+            </div>
+
+            <div id="discovered-paths-output" class="space-y-2">
+              Resultaten worden hier getoond...
+            </div>
+          </div>
+
+          <!-- Activity Frequencies -->
+          <div class="mb-8">
+            <h4 id="activities-title">Activiteit Frequenties</h4>
+            <p class="text-sm text-gray-600 mb-4">
+              Overzicht van hoe vaak elke activiteit voorkomt in alle
+              transacties.
+            </p>
+            <div id="activity-frequency-output" class="activity-grid">
+              Statistieken worden hier getoond...
+            </div>
+          </div>
+
+          <!-- Lead Time Analysis -->
+          <div>
+            <h4 id="leadtime-title">Doorlooptijd Analyse</h4>
+            <div class="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <p class="text-sm text-blue-800 mb-2">
+                <strong>Meetpunten:</strong> Van "PO Gemaakt & Goedgekeurd" tot
+                "Factuur Betaald"<br />
+                <strong>Norm:</strong> Maximaal 20 dagen voor optimale cashflow
+              </p>
+              <div id="lead-time-summary" class="text-sm text-blue-700">
+                Samenvatting wordt hier getoond...
+              </div>
+            </div>
+
+            <div class="chart-container">
+              <canvas
+                id="lead-time-chart"
+                aria-label="Doorlooptijd analyse grafiek"
+              ></canvas>
+              <div id="chart-fallback" class="chart-fallback hidden">
+                <svg
+                  class="w-16 h-16 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                  />
+                </svg>
+                <p class="text-gray-600 font-medium">
+                  Chart.js niet beschikbaar
+                </p>
+                <p class="text-sm text-gray-500 text-center">
+                  De grafiek kan niet geladen worden.<br />
+                  Statistische samenvatting is wel beschikbaar hierboven.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <p class="mb-2">
+          © 2024 Mastermodule Excellentie door Design. Alle rechten
+          voorbehouden.
+        </p>
+        <p class="text-sm text-gray-500">
+          Process Mining Simulator - Educatief gebruik
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Configuration constants
+      const CONFIG = {
+        LOG_ENTRIES_COUNT: 500,
+        QUALITY_OK_PROBABILITY: 0.8,
+        INCORRECT_PAYMENT_PROBABILITY: 0.3,
+        LEAD_TIME_NORM_DAYS: 20,
+        PO_SEND_PROBABILITY: 0.95,
+        PAYMENT_REMINDER_PROBABILITY: 0.1,
+        TOP_PATHS_TO_SHOW: 10,
+      };
+
+      // Data constants
+      const ACTIVITIES = {
+        BASE: [
+          "Aanvraag PR Gemaakt",
+          "PO Gemaakt & Goedgekeurd",
+          "PO Verzonden",
+          "Goederen Ontvangen",
+          "Factuur Ontvangen",
+          "Factuur Betaald",
+          "Procurement Afgerond",
+        ],
+        SPECIAL: {
+          QUALITY_CHECK: "Kwaliteitscontrole",
+          PROBLEM_REPORTED: "Probleem Gemeld",
+          BLOCK_INVOICE: "Instructie: Factuur Blokkeren",
+          SOLVE_PROBLEM: "Procurement Lost Probleem Op",
+          RELEASE_INVOICE: "Signaal: Factuur Vrijgeven",
+          INCORRECT_PAYMENT: "!! Onterechte Betaling na Kwaliteitsprobleem !!",
+          PAYMENT_REMINDER: "Betalingsherinnering Ontvangen",
+        },
+      };
+
+      const MASTER_DATA = {
+        PRODUCTS: [
+          "Volle Melkpoeder",
+          "Magere Melkpoeder",
+          "Weipoeder",
+          "Lactose",
+          "Boterolie",
+        ],
+        SUPPLIERS: [
+          "NL Zuivel BV",
+          "DE MilchKontor",
+          "FR Laiterie SA",
+          "PL Mleko Sp",
+          "IE Dairy Ltd.",
+        ],
+        RESOURCES: [
+          "P. Jansen",
+          "S. de Vries",
+          "AutoSysteem",
+          "M. Kowalski",
+          "L. Dupont",
+        ],
+      };
+
+      class ProcessMiningSimulator {
+        constructor() {
+          this.rawLogData = [];
+          this.leadTimeChartInstance = null;
+          this.isGenerating = false;
+          this.isMining = false;
+
+          this.initializeElements();
+          this.attachEventListeners();
+          this.checkLibraryStatus();
+        }
+
+        initializeElements() {
+          this.elements = {
+            generateButton: document.getElementById("generate-logs-button"),
+            generateButtonText: document.getElementById("generate-button-text"),
+            generateSpinner: document.getElementById("generate-spinner"),
+            logDataOutput: document.getElementById("log-data-output"),
+            logDataPreview: document.getElementById("log-data-preview"),
+            miningButton: document.getElementById("run-mining-button"),
+            miningButtonText: document.getElementById("mining-button-text"),
+            miningSpinner: document.getElementById("mining-spinner"),
+            miningHelp: document.getElementById("mining-help"),
+            resultsContainer: document.getElementById(
+              "mining-results-container"
+            ),
+            pathsOutput: document.getElementById("discovered-paths-output"),
+            activityOutput: document.getElementById(
+              "activity-frequency-output"
+            ),
+            leadTimeSummary: document.getElementById("lead-time-summary"),
+            chartCanvas: document.getElementById("lead-time-chart"),
+            chartFallback: document.getElementById("chart-fallback"),
+            statusMessages: document.getElementById("status-messages"),
+            diagramStatus: document.getElementById("diagram-status"),
+          };
+        }
+
+        attachEventListeners() {
+          this.elements.generateButton?.addEventListener("click", () =>
+            this.handleGenerateLogs()
+          );
+          this.elements.miningButton?.addEventListener("click", () =>
+            this.handleRunMining()
+          );
+        }
+
+        checkLibraryStatus() {
+          // Check Mermaid status
+          setTimeout(() => {
+            if (!window.mermaidLoaded) {
+              this.elements.diagramStatus?.classList.remove("hidden");
+            }
+          }, 3000);
+
+          // Check Chart.js status with better detection
+          setTimeout(() => {
+            const chartAvailable =
+              typeof Chart !== "undefined" &&
+              Chart &&
+              typeof Chart === "function";
+            console.log(
+              "Chart.js status check:",
+              chartAvailable ? "Available" : "Not available"
+            );
+
+            if (chartAvailable) {
+              console.log("Chart object type:", typeof Chart);
+            } else {
+              console.warn("Chart.js not available after loading attempts");
+            }
+          }, 2000);
+        }
+
+        async handleGenerateLogs() {
+          if (this.isGenerating) return;
+
+          try {
+            this.setGeneratingState(true);
+            this.showStatusMessage("Genereren van log data gestart...", "info");
+
+            await this.generateLogData();
+            this.displayLogPreview();
+            this.enableMiningButton();
+
+            this.showStatusMessage(
+              "Log data succesvol gegenereerd!",
+              "success"
+            );
+          } catch (error) {
+            this.showError("Fout bij het genereren van log data", error);
+          } finally {
+            this.setGeneratingState(false);
+          }
+        }
+
+        async handleRunMining() {
+          if (this.isMining || this.rawLogData.length === 0) return;
+
+          try {
+            this.setMiningState(true);
+            this.showStatusMessage(
+              "Process mining analyse wordt uitgevoerd...",
+              "info"
+            );
+
+            await this.runProcessMining();
+
+            this.showStatusMessage(
+              "Process mining analyse voltooid!",
+              "success"
+            );
+          } catch (error) {
+            this.showError("Fout bij process mining", error);
+          } finally {
+            this.setMiningState(false);
+          }
+        }
+
+        setGeneratingState(isGenerating) {
+          this.isGenerating = isGenerating;
+          const button = this.elements.generateButton;
+          const text = this.elements.generateButtonText;
+          const spinner = this.elements.generateSpinner;
+
+          if (button && text && spinner) {
+            text.textContent = isGenerating
+              ? "Genereren..."
+              : "Genereer Log Data (500 entries)";
+            button.disabled = isGenerating;
+            button.classList.toggle("opacity-50", isGenerating);
+            spinner.classList.toggle("hidden", !isGenerating);
+          }
+        }
+
+        setMiningState(isMining) {
+          this.isMining = isMining;
+          const button = this.elements.miningButton;
+          const text = this.elements.miningButtonText;
+          const spinner = this.elements.miningSpinner;
+
+          if (button && text && spinner) {
+            text.textContent = isMining
+              ? "Analyseren..."
+              : "Start Process Mining";
+            button.disabled = isMining;
+            button.classList.toggle("opacity-50", isMining);
+            spinner.classList.toggle("hidden", !isMining);
+          }
+        }
+
+        showStatusMessage(message, type = "info", duration = 5000) {
+          const container = this.elements.statusMessages;
+          if (!container) return;
+
+          const messageEl = document.createElement("div");
+          messageEl.className = `status-message status-${type}`;
+          messageEl.textContent = message;
+
+          container.appendChild(messageEl);
+
+          // Auto remove after duration
+          setTimeout(() => {
+            if (messageEl.parentNode) {
+              messageEl.parentNode.removeChild(messageEl);
+            }
+          }, duration);
+        }
+
+        async generateLogData() {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              this.rawLogData = [];
+              let logEntriesCount = 0;
+              let caseIdCounter = 1;
+              const startDate = new Date(2023, 0, 1);
+
+              while (logEntriesCount < CONFIG.LOG_ENTRIES_COUNT) {
+                const caseData = this.generateCaseData(
+                  caseIdCounter,
+                  startDate
+                );
+
+                for (const entry of caseData.entries) {
+                  if (logEntriesCount >= CONFIG.LOG_ENTRIES_COUNT) break;
+                  this.rawLogData.push(entry);
+                  logEntriesCount++;
+                }
+                caseIdCounter++;
+              }
+
+              this.rawLogData.sort(
+                (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
+              );
+              resolve();
+            }, 100);
+          });
+        }
+
+        generateCaseData(caseId, startDate) {
+          const currentCaseId = `CASE-${String(caseId).padStart(4, "0")}`;
+          const product = this.getRandomItem(MASTER_DATA.PRODUCTS);
+          const supplier = this.getRandomItem(MASTER_DATA.SUPPLIERS);
+          let daysOffset = Math.floor(Math.random() * 300);
+          let resource = this.getRandomItem(MASTER_DATA.RESOURCES);
+
+          const path = this.generateProcessPath();
+          const entries = [];
+
+          for (const activity of path) {
+            if (Math.random() < 0.3) {
+              resource = this.getRandomItem(MASTER_DATA.RESOURCES);
+            }
+
+            const activityDuration = this.getActivityDuration(activity);
+
+            entries.push({
+              case_id: currentCaseId,
+              activity: activity,
+              timestamp: this.generateTimestamp(startDate, daysOffset),
+              product: product,
+              supplier: supplier,
+              resource: resource,
+            });
+
+            daysOffset += activityDuration;
+          }
+
+          return { entries, caseId: currentCaseId };
+        }
+
+        generateProcessPath() {
+          const path = [];
+
+          path.push(ACTIVITIES.BASE[0], ACTIVITIES.BASE[1]);
+
+          if (Math.random() < CONFIG.PO_SEND_PROBABILITY) {
+            path.push(ACTIVITIES.BASE[2]);
+          }
+
+          path.push(ACTIVITIES.BASE[3], ACTIVITIES.SPECIAL.QUALITY_CHECK);
+
+          const qualityOK = Math.random() < CONFIG.QUALITY_OK_PROBABILITY;
+
+          if (qualityOK) {
+            path.push(ACTIVITIES.BASE[4]);
+
+            if (Math.random() < CONFIG.PAYMENT_REMINDER_PROBABILITY) {
+              path.push(ACTIVITIES.SPECIAL.PAYMENT_REMINDER);
+            }
+
+            path.push(ACTIVITIES.BASE[5], ACTIVITIES.BASE[6]);
+          } else {
+            path.push(ACTIVITIES.SPECIAL.PROBLEM_REPORTED);
+
+            if (Math.random() < CONFIG.INCORRECT_PAYMENT_PROBABILITY) {
+              path.push(
+                ACTIVITIES.SPECIAL.INCORRECT_PAYMENT,
+                ACTIVITIES.BASE[4],
+                ACTIVITIES.BASE[5],
+                ACTIVITIES.BASE[6]
+              );
+            } else {
+              path.push(
+                ACTIVITIES.SPECIAL.BLOCK_INVOICE,
+                ACTIVITIES.SPECIAL.SOLVE_PROBLEM,
+                ACTIVITIES.SPECIAL.RELEASE_INVOICE,
+                ACTIVITIES.BASE[4],
+                ACTIVITIES.BASE[5],
+                ACTIVITIES.BASE[6]
+              );
+            }
+          }
+
+          return path;
+        }
+
+        getActivityDuration(activity) {
+          const durationMap = {
+            [ACTIVITIES.SPECIAL.SOLVE_PROBLEM]: () =>
+              Math.floor(Math.random() * 4) + 6,
+            [ACTIVITIES.SPECIAL.QUALITY_CHECK]: () =>
+              Math.floor(Math.random() * 3) + 2,
+            [ACTIVITIES.SPECIAL.PAYMENT_REMINDER]: () =>
+              Math.floor(Math.random() * 3) + 2,
+          };
+
+          return durationMap[activity]
+            ? durationMap[activity]()
+            : Math.floor(Math.random() * 5) + 3;
+        }
+
+        generateTimestamp(baseDate, daysOffset) {
+          const newDate = new Date(baseDate);
+          newDate.setDate(baseDate.getDate() + daysOffset);
+          newDate.setHours(Math.floor(Math.random() * 8) + 9);
+          newDate.setMinutes(Math.floor(Math.random() * 60));
+          newDate.setSeconds(Math.floor(Math.random() * 60));
+          return newDate.toISOString();
+        }
+
+        displayLogPreview() {
+          const uniqueCases = new Set(this.rawLogData.map((log) => log.case_id))
+            .size;
+          const preview = `✅ Totaal ${
+            this.rawLogData.length
+          } log entries gegenereerd voor ${uniqueCases} unieke transacties.
+
+📋 Voorbeeld van de eerste 10 entries:
+${"-".repeat(80)}
+${this.rawLogData
+  .slice(0, 10)
+  .map(
+    (log, index) =>
+      `${String(index + 1).padStart(2, "0")}. ${log.case_id} | ${log.activity
+        .substring(0, 35)
+        .padEnd(35)} | ${log.timestamp.substring(0, 19)} | ${log.resource}`
+  )
+  .join("\n")}
+${"-".repeat(80)}
+
+🏢 Dataset bevat:
+• Producten: ${MASTER_DATA.PRODUCTS.join(", ")}
+• Leveranciers: ${MASTER_DATA.SUPPLIERS.join(", ")}
+• Tijdspanne: 2023 (willekeurig verdeeld over het jaar)`;
+
+          if (this.elements.logDataPreview) {
+            this.elements.logDataPreview.textContent = preview;
+          }
+
+          this.elements.logDataOutput?.classList.remove("hidden");
+        }
+
+        enableMiningButton() {
+          const button = this.elements.miningButton;
+          const help = this.elements.miningHelp;
+
+          if (button) {
+            button.disabled = false;
+            button.classList.remove("opacity-50", "cursor-not-allowed");
+          }
+
+          if (help) {
+            help.textContent = "Klik om de process mining analyse te starten.";
+            help.className = "text-sm text-green-600 mt-2";
+          }
+
+          this.elements.resultsContainer?.classList.add("hidden");
+        }
+
+        async runProcessMining() {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              const analysis = this.analyzeProcessData();
+              this.displayResults(analysis);
+              this.elements.resultsContainer?.classList.remove("hidden");
+
+              this.elements.resultsContainer?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+
+              resolve();
+            }, 500);
+          });
+        }
+
+        analyzeProcessData() {
+          const cases = this.groupLogsByCase();
+          const pathFrequencies = {};
+          const activityCounts = {};
+          const leadTimes = [];
+          let withinNormCount = 0;
+          let exceededNormCount = 0;
+
+          for (const [caseId, events] of Object.entries(cases)) {
+            const path = events.map((log) => log.activity).join(" → ");
+            pathFrequencies[path] = (pathFrequencies[path] || 0) + 1;
+
+            events.forEach((log) => {
+              activityCounts[log.activity] =
+                (activityCounts[log.activity] || 0) + 1;
+            });
+
+            const leadTime = this.calculateLeadTime(events);
+            if (leadTime !== null) {
+              leadTimes.push(leadTime);
+              if (leadTime <= CONFIG.LEAD_TIME_NORM_DAYS) {
+                withinNormCount++;
+              } else {
+                exceededNormCount++;
+              }
+            }
+          }
+
+          return {
+            pathFrequencies,
+            activityCounts,
+            leadTimes,
+            withinNormCount,
+            exceededNormCount,
+            totalCases: Object.keys(cases).length,
+          };
+        }
+
+        groupLogsByCase() {
+          const cases = {};
+          this.rawLogData.forEach((log) => {
+            if (!cases[log.case_id]) {
+              cases[log.case_id] = [];
+            }
+            cases[log.case_id].push(log);
+          });
+
+          Object.values(cases).forEach((events) => {
+            events.sort(
+              (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
+            );
+          });
+
+          return cases;
+        }
+
+        calculateLeadTime(events) {
+          const startActivity = ACTIVITIES.BASE[1];
+          const endActivity = ACTIVITIES.BASE[5];
+
+          const startEvent = events.find((e) => e.activity === startActivity);
+          const endEvent = events.find((e) => e.activity === endActivity);
+
+          if (!startEvent || !endEvent) return null;
+
+          const startTime = new Date(startEvent.timestamp);
+          const endTime = new Date(endEvent.timestamp);
+
+          if (endTime <= startTime) return null;
+
+          return (endTime - startTime) / (1000 * 60 * 60 * 24);
+        }
+
+        displayResults(analysis) {
+          this.displayProcessPaths(
+            analysis.pathFrequencies,
+            analysis.totalCases
+          );
+          this.displayActivityFrequencies(analysis.activityCounts);
+          this.displayLeadTimeAnalysis(
+            analysis.leadTimes,
+            analysis.withinNormCount,
+            analysis.exceededNormCount
+          );
+          this.renderLeadTimeChart(
+            analysis.withinNormCount,
+            analysis.exceededNormCount
+          );
+        }
+
+        displayProcessPaths(pathFrequencies, totalCases) {
+          const sortedPaths = Object.entries(pathFrequencies)
+            .sort(([, a], [, b]) => b - a)
+            .slice(0, CONFIG.TOP_PATHS_TO_SHOW);
+
+          if (!this.elements.pathsOutput) return;
+
+          this.elements.pathsOutput.innerHTML = "";
+
+          sortedPaths.forEach(([path, count], index) => {
+            const pathDiv = this.createPathElement(path, count, index + 1);
+            this.elements.pathsOutput.appendChild(pathDiv);
+          });
+
+          if (Object.keys(pathFrequencies).length > CONFIG.TOP_PATHS_TO_SHOW) {
+            const moreInfo = document.createElement("div");
+            moreInfo.className = "mt-4 p-3 bg-gray-100 rounded-lg text-center";
+            moreInfo.innerHTML = `
+              <p class="text-sm text-gray-600">
+                📊 <strong>${
+                  Object.keys(pathFrequencies).length
+                }</strong> unieke proces varianten ontdekt in <strong>${totalCases}</strong> transacties<br/>
+                <span class="text-xs">Bovenstaande lijst toont de ${
+                  CONFIG.TOP_PATHS_TO_SHOW
+                } meest voorkomende paden</span>
+              </p>
+            `;
+            this.elements.pathsOutput.appendChild(moreInfo);
+          }
+        }
+
+        createPathElement(path, count, rank) {
+          const pathDiv = document.createElement("div");
+          pathDiv.className = "discovered-path";
+
+          const rankBadge = document.createElement("span");
+          rankBadge.className =
+            "inline-block bg-gray-200 text-gray-600 text-xs font-bold px-2 py-1 rounded-full mr-3";
+          rankBadge.textContent = `#${rank}`;
+
+          if (path.includes(ACTIVITIES.SPECIAL.INCORRECT_PAYMENT)) {
+            pathDiv.style.borderColor = "#EF4444";
+            pathDiv.classList.add("font-semibold", "bg-red-50");
+          } else if (path.includes(ACTIVITIES.SPECIAL.PROBLEM_REPORTED)) {
+            pathDiv.style.borderColor = "#FBBF24";
+            pathDiv.classList.add("bg-yellow-50");
+          } else if (
+            path.includes(ACTIVITIES.SPECIAL.PAYMENT_REMINDER) ||
+            !path.includes(ACTIVITIES.BASE[2])
+          ) {
+            pathDiv.style.borderColor = "#F87171";
+            pathDiv.classList.add("bg-orange-50");
+          } else {
+            pathDiv.style.borderColor = "#6EE7B7";
+            pathDiv.classList.add("bg-green-50");
+          }
+
+          const steps = path.split(" → ");
+          const stepsHtml = steps
+            .map((step, index) => {
+              const shortStep =
+                step.length > 20 ? step.substring(0, 17) + "..." : step;
+              const stepSpan = `<span class="path-step" title="${step}">${shortStep}</span>`;
+              const arrow =
+                index < steps.length - 1
+                  ? ' <span class="text-gray-400 mx-1 text-sm">→</span> '
+                  : "";
+              return stepSpan + arrow;
+            })
+            .join("");
+
+          const frequency = document.createElement("span");
+          frequency.className = "path-frequency";
+          frequency.textContent = `${count}x`;
+
+          pathDiv.appendChild(rankBadge);
+          pathDiv.insertAdjacentHTML("beforeend", stepsHtml);
+          pathDiv.appendChild(frequency);
+
+          return pathDiv;
+        }
+
+        displayActivityFrequencies(activityCounts) {
+          if (!this.elements.activityOutput) return;
+
+          this.elements.activityOutput.innerHTML = "";
+
+          const sortedActivities = Object.entries(activityCounts).sort(
+            ([, a], [, b]) => b - a
+          );
+
+          sortedActivities.forEach(([activity, count]) => {
+            const actDiv = document.createElement("div");
+            actDiv.className = "activity-card";
+
+            if (activity === ACTIVITIES.SPECIAL.INCORRECT_PAYMENT) {
+              actDiv.classList.add("bg-red-100", "border-2", "border-red-300");
+              actDiv.innerHTML = `
+                <div class="font-bold text-red-700 text-sm mb-1">⚠️ ${activity}</div>
+                <div class="text-red-600 font-semibold">${count} keer</div>
+              `;
+            } else if (activity.includes("Probleem")) {
+              actDiv.classList.add(
+                "bg-yellow-100",
+                "border",
+                "border-yellow-300"
+              );
+              actDiv.innerHTML = `
+                <div class="font-semibold text-yellow-800 text-sm mb-1">${activity}</div>
+                <div class="text-yellow-700 font-semibold">${count} keer</div>
+              `;
+            } else {
+              actDiv.classList.add("bg-sky-50", "border", "border-sky-200");
+              actDiv.innerHTML = `
+                <div class="font-semibold text-sky-800 text-sm mb-1">${activity}</div>
+                <div class="text-sky-700 font-semibold">${count} keer</div>
+              `;
+            }
+
+            this.elements.activityOutput.appendChild(actDiv);
+          });
+        }
+
+        displayLeadTimeAnalysis(leadTimes, withinNormCount, exceededNormCount) {
+          if (!this.elements.leadTimeSummary) return;
+
+          if (leadTimes.length === 0) {
+            this.elements.leadTimeSummary.innerHTML =
+              '<span class="text-yellow-600">⚠️ Geen volledige doorlooptijden gevonden voor de geselecteerde activiteiten.</span>';
+            return;
+          }
+
+          const average =
+            leadTimes.reduce((sum, lt) => sum + lt, 0) / leadTimes.length;
+          const min = Math.min(...leadTimes);
+          const max = Math.max(...leadTimes);
+          const exceededPercentage = (
+            (exceededNormCount / leadTimes.length) *
+            100
+          ).toFixed(1);
+
+          let performanceIcon = "✅";
+          let performanceColor = "text-green-700";
+          if (exceededPercentage > 30) {
+            performanceIcon = "❌";
+            performanceColor = "text-red-700";
+          } else if (exceededPercentage > 15) {
+            performanceIcon = "⚠️";
+            performanceColor = "text-yellow-700";
+          }
+
+          this.elements.leadTimeSummary.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <strong>📊 Doorlooptijd Statistieken:</strong><br/>
+                • Gemiddeld: <strong>${average.toFixed(1)} dagen</strong><br/>
+                • Minimum: ${min.toFixed(1)} dagen<br/>
+                • Maximum: ${max.toFixed(1)} dagen
+              </div>
+              <div class="${performanceColor}">
+                ${performanceIcon} <strong>Norm Performance:</strong><br/>
+                • ${withinNormCount} transacties binnen norm<br/>
+                • ${exceededNormCount} transacties (<strong>${exceededPercentage}%</strong>) overschreden ${
+            CONFIG.LEAD_TIME_NORM_DAYS
+          } dagen
+              </div>
+            </div>
+          `;
+        }
+
+        renderLeadTimeChart(withinCount, exceededCount) {
+          if (!this.elements.chartCanvas) return;
+
+          // Improved Chart.js detection
+          const checkChart = () => {
+            return (
+              typeof Chart !== "undefined" &&
+              Chart &&
+              typeof Chart === "function"
+            );
+          };
+
+          if (!checkChart()) {
+            // Wait a bit and try again (Chart.js might still be loading)
+            setTimeout(() => {
+              if (!checkChart()) {
+                console.info(
+                  "Chart.js not available after waiting, showing fallback"
+                );
+                this.elements.chartCanvas?.classList.add("hidden");
+                this.elements.chartFallback?.classList.remove("hidden");
+                return;
+              } else {
+                console.log("Chart.js found after waiting, creating chart");
+                this.createChart(withinCount, exceededCount);
+              }
+            }, 1000); // Increased wait time
+            return;
+          }
+
+          console.log("Chart.js available immediately, creating chart");
+          this.createChart(withinCount, exceededCount);
+        }
+
+        createChart(withinCount, exceededCount) {
+          if (this.leadTimeChartInstance) {
+            this.leadTimeChartInstance.destroy();
+            this.leadTimeChartInstance = null;
+          }
+
+          try {
+            this.leadTimeChartInstance = new Chart(
+              this.elements.chartCanvas.getContext("2d"),
+              {
+                type: "bar",
+                data: {
+                  labels: [
+                    "Binnen Norm (≤ 20 dagen)",
+                    "Norm Overschreden (> 20 dagen)",
+                  ],
+                  datasets: [
+                    {
+                      label: "Aantal Transacties",
+                      data: [withinCount, exceededCount],
+                      backgroundColor: [
+                        "rgba(34, 197, 94, 0.8)",
+                        "rgba(239, 68, 68, 0.8)",
+                      ],
+                      borderColor: ["rgb(34, 197, 94)", "rgb(239, 68, 68)"],
+                      borderWidth: 2,
+                    },
+                  ],
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  indexAxis: "y",
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      grid: {
+                        color: "#f3f4f6",
+                      },
+                      title: {
+                        display: true,
+                        text: "Aantal Transacties",
+                      },
+                    },
+                    y: {
+                      grid: {
+                        display: false,
+                      },
+                      ticks: {
+                        font: {
+                          weight: "bold",
+                          size: 11,
+                        },
+                      },
+                    },
+                  },
+                  plugins: {
+                    legend: {
+                      display: false,
+                    },
+                    title: {
+                      display: true,
+                      text: `Doorlooptijd Performance vs. Norm (${CONFIG.LEAD_TIME_NORM_DAYS} dagen)`,
+                      font: {
+                        size: 16,
+                        weight: "bold",
+                      },
+                      padding: 20,
+                    },
+                    tooltip: {
+                      callbacks: {
+                        label: function (context) {
+                          const total = withinCount + exceededCount;
+                          const percentage = (
+                            (context.raw / total) *
+                            100
+                          ).toFixed(1);
+                          return `${context.raw} transacties (${percentage}%)`;
+                        },
+                      },
+                    },
+                  },
+                  animation: {
+                    duration: 1000,
+                    easing: "easeInOutQuart",
+                  },
+                },
+              }
+            );
+
+            console.log("Chart created successfully");
+          } catch (error) {
+            console.error("Error creating chart:", error);
+            this.elements.chartCanvas?.classList.add("hidden");
+            this.elements.chartFallback?.classList.remove("hidden");
+          }
+        }
+
+        showError(message, error) {
+          console.error(message, error);
+          this.showStatusMessage(`${message}: ${error.message}`, "error");
+        }
+
+        getRandomItem(array) {
+          return array[Math.floor(Math.random() * array.length)];
+        }
+
+        destroy() {
+          if (this.leadTimeChartInstance) {
+            this.leadTimeChartInstance.destroy();
+            this.leadTimeChartInstance = null;
+          }
+        }
+      }
+
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        if (menu) {
+          menu.classList.toggle("hidden");
+        }
+      }
+
+      // Initialize when DOM is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        try {
+          window.processMiningSimulator = new ProcessMiningSimulator();
+          console.log("Process Mining Simulator initialized successfully");
+        } catch (error) {
+          console.error(
+            "Failed to initialize Process Mining Simulator:",
+            error
+          );
+
+          const statusContainer = document.getElementById("status-messages");
+          if (statusContainer) {
+            statusContainer.innerHTML = `
+              <div class="status-message status-error">
+                ⚠️ Er is een fout opgetreden bij het laden van de simulator. Ververs de pagina om het opnieuw te proberen.
+              </div>
+            `;
+          }
+        }
+      });
+
+      // Cleanup on page unload
+      window.addEventListener("beforeunload", () => {
+        if (window.processMiningSimulator) {
+          window.processMiningSimulator.destroy();
+        }
+      });
+    </script>
+  </body>
+</html>
