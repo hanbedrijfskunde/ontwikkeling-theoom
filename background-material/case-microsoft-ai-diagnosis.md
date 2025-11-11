@@ -1,5 +1,5 @@
 ## Title
-"Medical Superintelligence: When AI Diagnoses Better Than Doctors"
+"Genchi Genbutsu by Algorithm: Can AI 'Go See' the Patient?"
 
 ## Video
 https://youtu.be/8Eq9BemIt0s?si=0BKrtNJXkrxSWf-C
