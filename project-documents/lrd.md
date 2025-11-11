@@ -692,6 +692,12 @@ Deze tabel is het **hart van de les**. Studenten gebruiken dit als menu om hun e
 
 ---
 
+## 10. REFERENTIES
+
+Gomaa, A. H. (2025). Lean 4.0: A Strategic Roadmap for Operational Excellence and Innovation in Smart Manufacturing. *International Journal of Emerging Science and Engineering (IJESE)*, *13*(4), 1-14.
+
+---
+
 **EINDE LEARNING REQUIREMENT DOCUMENT**
 
 *Dit is een levend document. Na eerste uitvoering updaten op basis van ervaringen en student feedback.*
