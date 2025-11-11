@@ -310,8 +310,12 @@ Deze vraag verbindt **alle vier** DOVE-leeruitkomsten:
 - **Gebruik**: Simuleer "meer verpleegkundigen" of "snellere machine" VOOR investering
 - **Lean 4.0 link**: Kaizen + Digital Twin = risicovrij testen
 
-#### Reflectiemoment (5 min)
+#### Reflectiemoment (5-10 min)
+
+**Optie A: Tool-Focused Reflectie (5 min - basis)**
+
 **Vraag**: "Hoe vullen deze twee tools elkaar aan?"
+
 - **Process Mining** (links): Ontdekt huidige werkelijkheid uit data
 - **DES** (rechts): Test verbeteringen in virtuele omgeving
 - **Digital Twin** (centrum): Combinatie = real-time optimalisatie
@@ -319,6 +323,19 @@ Deze vraag verbindt **alle vier** DOVE-leeruitkomsten:
   - **Kosten**: Sensoren, software, data-infrastructure
   - **Baten**: Snelheid, nauwkeurigheid, schaalbaarheid
   - **Conclusie**: Niet altijd beter, maar vaak complementair aan traditionele Lean
+
+**Optie B: Case-Based Reflectie (10 min - recommended voor rijkere discussie)**
+
+- **2 min**: Video fragment (docent kiest 1 case uit 4: Uber/Amazon/Microsoft/Dark Factories)
+- **5 min**: Duo-discussie met 2-3 discussievragen uit gekozen case
+- **3 min**: Plenaire debrief - "Wat maakt deze trade-off moeilijk? Welke stakeholders winnen/verliezen?"
+
+**Case selectie guidance** (zie Student Workbook + Issue #4):
+
+- **Uber/Amazon**: Relateerbaar (iedereen kent deze bedrijven), concrete worker impact
+- **Microsoft**: Escalatie naar professional work, synthesis vraag over role of people
+- **Dark Factories**: Visueel impressive, manufacturing focus
+- **Timing trade-off**: +5 min hier → -5 min uit Fase 3 Borging intro (wordt leesmateriaal)
 
 ---
 
@@ -432,12 +449,17 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 5. **Opdracht template**: AS-IS (D) / TO-BE (O) / Borging (V) / Impact (E)
 6. **Skill Progression Checklist** (met DOVE-labels)
 7. **Reflectievragen**
-8. **Case Studies Pagina** (1-2 pagina's):
-   - Samenvattingen van 4 cases (150 woorden each)
-   - 2-3 discussievragen per case (uit complete set in background-material/)
-   - QR codes naar full videos
-   - **Synthesis vraag**: Role of people in optimized economy
-   - Instructie: "Kies 1-2 cases voor assignment reflectie (Criterium E: Evalueren)"
+8. **Case Studies Pagina** (2-3 pagina's):
+   - **4 case studies** (files: background-material/case-*.md):
+     - Uber: "Quality vs. Excellence" (1 video, 5 discussie secties)
+     - Dark Factories: "Gemba Walk in the Dark" (1 video, 6 discussie secties)
+     - Amazon: "The 6th S: Substitute" (3 videos, 6 discussie secties)
+     - Microsoft: "Genchi Genbutsu by Algorithm" (1 video, 6 discussie secties)
+   - **Per case**: Executive summary (150-200 woorden) + 5-6 discussie secties + video links/QR codes
+   - **Cross-case synthesis**: Automation Escalation table (low-skill → high-skill progression)
+   - **Video totaal**: 6 videos (totale speeltijd ~30 min, fragmenten 2-4 min)
+   - **Synthesis vraag**: "In an economy optimized by AI, what is the role of people?"
+   - **Instructie**: "Kies 1-2 cases voor assignment reflectie (Criterium E: Evalueren, 20%)"
 
 **Templates** (printbaar):
 - Ishikawa diagram (A3 format)
@@ -450,7 +472,10 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
   - "Ishikawa in 5 minuten"
   - "VSM basics"
   - "Intro to Digital Twins" (YouTube)
-- Artikel: Lean 4.0 excerpt (key pages uit achtergrondmateriaal)
+- **Lean Evolution Background** (optioneel verdiepingsmateriaal):
+  - [lean-evolution.md](../background-material/lean-evolution.md) - Compacte samenvatting (Lean 1.0 → 5.0+)
+  - Focus: "Respect for People" evolutie, Research gaps (Human/Sustainability/Technology)
+  - Bruikbaar voor studenten die context willen bij "Waarom Lean 4.0?"
 
 ### 4.3 Interactieve Tools Specificaties
 
@@ -514,7 +539,7 @@ Groepen van 3-4 studenten krijgen een case (keuze uit 3):
 | **Industry 4.0 Keuze & Rationale** | **D** | 10% | Geen rationale | Keuze onderbouwd | Strategisch passend, goed uitgelegd | Perfect match met probleem |
 | **TO-BE Ontwerp** | **O** | 30% | Geen echte verbetering | Realistische verbeteringen | Kwantitatieve impact (tijd/kosten), hybride aanpak | Overtuigende business case, meervoudige waardencreatie |
 | **Borgingsplan** | **V** | 10% | Ontbreekt of vaag | Basis KPI's + monitoring benoemd | Concreet plan (procedures + digital dashboards) | Duurzame borging, change management |
-| **Evaluatie & Reflectie** | **E** | 20% | Oppervlakkig | Trade-offs benoemd, impact geschat | Kritische analyse, metrieken gebruikt | Genuanceerd, strategisch inzicht, lessons learned |
+| **Evaluatie & Reflectie** | **E** | 20% | Oppervlakkig | Trade-offs benoemd, impact geschat | Kritische analyse, metrieken gebruikt | Genuanceerd, strategisch inzicht, **case studies gebruikt voor diepere analyse**, lessons learned |
 
 **DOVE-cyclus verdeling**: Diagnosticeren (40%), Ontwerpen (30%), Veranderen (10%), Evalueren (20%)
 
@@ -554,11 +579,13 @@ Deze tabel is het **hart van de les**. Studenten gebruiken dit als menu om hun e
 
 ## 7. IMPLEMENTATIE TIPS VOOR WITEK
 
-### 7.1 Voorbereiding (2 uur)
+### 7.1 Voorbereiding (2-3 uur)
 - [ ] Test alle web-based demo's (2 tools: Process Mining + DES)
 - [ ] Print templates (1 set per 4 studenten) + Digital Process Engineering diagram
-- [ ] Check: Beamer, WiFi, toegang tot demo sites
-- [ ] Bereid backup plan: screenshots als tech faalt
+- [ ] **[Als cases gebruikt]** Test/download video fragments (6 videos: Uber 8:28, Dark Factories 5:14, Amazon 3×2-4min, Microsoft 3:30)
+- [ ] **[Als cases gebruikt]** Kies welke case(s) voor reflectiemoment (zie case selection guidance H3)
+- [ ] Check: Beamer, WiFi, toegang tot demo sites **+ YouTube/streaming toegang**
+- [ ] Bereid backup plan: screenshots als tech faalt **+ video fallback (prepared screenshots + verbal summary)**
 - [ ] Lees Lean 4.0 artikel door voor eigen verdieping
 
 ### 7.2 Tijdens Les - Time Management
@@ -610,11 +637,58 @@ Deze tabel is het **hart van de les**. Studenten gebruiken dit als menu om hun e
 - ✅ Retrospective scores: gemiddeld 4.5+ op P-A-M
 - ✅ Assignment/quiz: 75%+ haalt 6 of hoger
 - ✅ Student feedback: "Ik snap nu wanneer digitalisering zinvol is"
+- ✅ **[Als cases gebruikt]** 50%+ studenten gebruikt minimaal 1 case in assignment reflectie
+- ✅ **[Als cases gebruikt]** Reflecties zijn genuanceerd ("het hangt ervan af...") ipv simplistisch
+- ✅ **[Als cases gebruikt]** Poll na reflectie: 70%+ vindt case "eye-opening" of "relevant"
 
 **Long-term**:
 - Studenten passen Lean 4.0 denken toe in stages
 - Vragen in Q&A: "Hoe implementeer ik dit bij bedrijf X?"
 - Alumni feedback: "Deze les was super relevant voor mijn werk"
+
+---
+
+## 9. DEVELOPMENT TRACKING
+
+### GitHub Issues - Week 4 Components
+
+**Tools** (Priority: High):
+
+- [Issue #1](https://github.com/hanbedrijfskunde/ontwikkeling-theoom/issues/1): Process Mining Simulator
+  - Status: OPEN | PRD: [prd-process-mining.md](prd-process-mining.md)
+  - 3 scenarios: Procurement, Customer Service, Order-to-Cash
+
+- [Issue #2](https://github.com/hanbedrijfskunde/ontwikkeling-theoom/issues/2): Discrete Event Simulation
+  - Status: OPEN | PRD: [prd-discrete-event-simulation.md](prd-discrete-event-simulation.md)
+  - 2 scenarios: Healthcare, Manufacturing
+
+**Content** (Priority: Medium):
+
+- [Issue #4](https://github.com/hanbedrijfskunde/ontwikkeling-theoom/issues/4): Case Studies
+  - Status: OPEN | Case Files: background-material/case-*.md (4 files completed ✅)
+  - Deliverables: Student Workbook pagina (⏳), Docentenhandleiding keuzewijzer (⏳), Video fragments (⏳)
+
+**Enhancement** (Priority: Low):
+
+- [Issue #3](https://github.com/hanbedrijfskunde/ontwikkeling-theoom/issues/3): Monte Carlo Simulation
+  - Status: OPEN | Optional advanced tool
+
+### Case Study Files Status
+
+| Case | File | Lines | Videos | Discussion Sections | Status |
+|------|------|-------|--------|---------------------|--------|
+| Uber | case-uber.md | 348 | 1 | 5 | ✅ Complete |
+| Dark Factories | case-dark-factories.md | 301 | 1 | 6 | ✅ Complete |
+| Amazon | case-amazon-robots.md | 933 | 3 | 6 | ✅ Complete |
+| Microsoft | case-microsoft-ai-diagnosis.md | 427 | 1 | 6 | ✅ Complete |
+
+**Total**: 2009 lines, 6 videos, 23 discussion sections with DOVE/Table VII/TIM WOOD links
+
+### Background Materials
+
+- **Lean Evolution**: [lean-evolution.md](../background-material/lean-evolution.md) (232 lines) - Lean 1.0 → 5.0+ progression
+- **Digital Process Engineering**: Framework diagram (JPG + SVG formats)
+- **PRDs**: 2 complete product requirement documents (4172 lines total)
 
 ---
 
